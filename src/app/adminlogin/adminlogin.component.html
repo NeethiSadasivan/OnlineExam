@@ -21,7 +21,7 @@
     
     <p class="form-group col-3">
         <label for = "password">Password</label>
-        <input type = "text" id = "password" name = "password" class="form-control" placeholder="Password" required [(ngModel)] = "admin.password" #password="ngModel"/>
+        <input type = "password" id = "password" name = "password" class="form-control" placeholder="Password" required [(ngModel)] = "admin.password" #password="ngModel"/>
     </p>
     <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="form-group error col-3">
         <div *ngIf="password!.errors!.required">
