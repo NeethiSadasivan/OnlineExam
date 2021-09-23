@@ -11,6 +11,7 @@ import { AdminforgotpasswordComponent } from './adminforgotpassword/adminforgotp
 import { ReportcardComponent } from './reportcard/reportcard.component';
 import { AfterlevelComponent } from './afterlevel/afterlevel.component';
 import { LoginComponent } from './login/login.component';
+import { StartpageComponent } from './startpage/startpage.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     AdminforgotpasswordComponent,
     ReportcardComponent,
     AfterlevelComponent,
-    LoginComponent
+    LoginComponent,
+    StartpageComponent
   ],
   imports: [
     BrowserModule,
