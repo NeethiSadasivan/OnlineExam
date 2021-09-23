@@ -10,6 +10,7 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdminforgotpasswordComponent } from './adminforgotpassword/adminforgotpassword.component';
 import { ReportcardComponent } from './reportcard/reportcard.component';
 import { AfterlevelComponent } from './afterlevel/afterlevel.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AfterlevelComponent } from './afterlevel/afterlevel.component';
     AdminloginComponent,
     AdminforgotpasswordComponent,
     ReportcardComponent,
-    AfterlevelComponent
+    AfterlevelComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
