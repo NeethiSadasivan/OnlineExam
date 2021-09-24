@@ -7,6 +7,7 @@ import { ReportcardComponent } from './reportcard/reportcard.component';
 import { AfterlevelComponent } from './afterlevel/afterlevel.component';
 import { LoginComponent } from './login/login.component';
 import { StartpageComponent } from './startpage/startpage.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 const routes: Routes = [
   {path:'',component:StartpageComponent},
   {path:'Home',component:HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'ReportCard',component:ReportcardComponent},
   {path:'AfterLevel',component:AfterlevelComponent},
   {path:'Login',component:LoginComponent},
-  {path:'StartPage',component:StartpageComponent}
+  {path:'StartPage',component:StartpageComponent},
+  {path:'AboutUs',component:AboutusComponent}
 ];
 
 @NgModule({

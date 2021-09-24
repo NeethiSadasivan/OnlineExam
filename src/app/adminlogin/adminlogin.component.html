@@ -1,5 +1,4 @@
-<p>adminlogin works!</p>
-
+<div class="main">
 <form #aform="ngForm" (ngSubmit)="Submitdata()" novalidate>
 <div style="margin-left: 40%;">
     <h1>Admin Login</h1>
@@ -31,7 +30,8 @@
 
     <div class="form-group form-check">
         <a routerLink="/AdminForgotPassword">Forgot Password</a><br>
-        <button type="submit" class="btn btn-primary" style="margin-top: 10px;" [disabled]="!aform.valid">Login</button> 
+        <button type="submit" class="btn btn-light btn-lg" style="margin-top: 10px;" [disabled]="!aform.valid">Login</button> 
     </div>    
 </div>
 </form>
+</div>

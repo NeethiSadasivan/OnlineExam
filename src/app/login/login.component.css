@@ -1,6 +1,7 @@
-body{  
-    background-image: url(/assets/login.jpeg);     
-    height:86%;
-    background-repeat: no-repeat;
-    background-size: cover;
-} 
+.main{
+    height: 41.5em;
+    background-image: url(/assets/Login.jpg);
+    
+    background-size:cover;
+
+}

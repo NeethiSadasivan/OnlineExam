@@ -12,6 +12,7 @@ import { ReportcardComponent } from './reportcard/reportcard.component';
 import { AfterlevelComponent } from './afterlevel/afterlevel.component';
 import { LoginComponent } from './login/login.component';
 import { StartpageComponent } from './startpage/startpage.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StartpageComponent } from './startpage/startpage.component';
     ReportcardComponent,
     AfterlevelComponent,
     LoginComponent,
-    StartpageComponent
+    StartpageComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
