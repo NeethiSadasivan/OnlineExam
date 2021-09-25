@@ -1,4 +1,4 @@
-import { Admin } from './admin';
+import { Admin } from './model/admin';
 
 describe('Admin', () => {
   it('should create an instance', () => {

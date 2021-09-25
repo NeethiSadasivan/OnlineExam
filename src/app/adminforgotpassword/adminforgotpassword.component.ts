@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../admin';
+import { Admin } from '../model/admin';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
