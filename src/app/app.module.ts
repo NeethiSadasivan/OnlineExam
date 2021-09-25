@@ -14,6 +14,8 @@ import { AfterlevelComponent } from './afterlevel/afterlevel.component';
 import { LoginComponent } from './login/login.component';
 import { StartpageComponent } from './startpage/startpage.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { UserregisterComponent } from './userregister/userregister.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     AfterlevelComponent,
     LoginComponent,
     StartpageComponent,
-    AboutusComponent
+    AboutusComponent,
+    UserloginComponent,
+    UserregisterComponent
   ],
   imports: [
     BrowserModule,

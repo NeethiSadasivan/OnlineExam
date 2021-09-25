@@ -8,6 +8,8 @@ import { AfterlevelComponent } from './afterlevel/afterlevel.component';
 import { LoginComponent } from './login/login.component';
 import { StartpageComponent } from './startpage/startpage.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { UserregisterComponent } from './userregister/userregister.component';
 const routes: Routes = [
   {path:'',component:StartpageComponent},
   {path:'Home',component:HomeComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'AfterLevel',component:AfterlevelComponent},
   {path:'Login',component:LoginComponent},
   {path:'StartPage',component:StartpageComponent},
-  {path:'AboutUs',component:AboutusComponent}
+  {path:'AboutUs',component:AboutusComponent},
+  {path:'UserLogin',component:UserloginComponent},
+  {path:'Register',component:UserregisterComponent}
 ];
 
 @NgModule({

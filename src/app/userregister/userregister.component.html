@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<body> 
+  
+
+    <div class="row" style="font-family: Calibri;">
+        <div class="main">
+          <div class="registerbox">
+            <h2 style="margin-left: 2em;">Register for the MET Examination</h2>
+            <form [formGroup]="Registerform" (ngSubmit)="Submitregister()" novalidate>
+                <div class="container">
+                  <label for="name"><b>Fullname</b></label>
+                  <input type="text" placeholder="Enter Fullname" id="Fullname" name="Fullname" class="form-control" formControlName="FullName">
+
+                  <div *ngIf="!FullName?.valid && (FullName?.dirty || FullName?.touched)" class="error">
+                    <div *ngIf="FullName!.errors!.required">
+                      <p style="color:red;">Full Name is required</p>
+                    </div>
+                    <div *ngIf="FullName!.errors!.pattern">
+                      <p style="color: red;">Enter Name in correct format</p>
+                    </div>
+                 </div>
+              
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" id="Password" name="Password" class="form-control" formControlName="Password">
+
+                  <div *ngIf="!Password?.valid && (Password?.dirty || Password?.touched)" class="error">
+                    <div *ngIf="Password!.errors!.required">
+                      <p style="color: red;">Password is required</p>
+                    </div>
+                    <div *ngIf="Password!.errors!.pattern">
+                      <p style="color: red;">Password should contain Minimum eight characters,first letter should be upper case and should have atleast one number,lowercase and special characters</p>
+                    </div>
+                  </div>
+              
+                  <label for="email"><b>Email Address</b></label>
+                  <input type="email" placeholder="Enter Email Address" id="Email" name="Email" class="form-control" formControlName="Email">
+
+                  <div *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)" class="error">
+                    <div *ngIf="Email!.errors!.required">
+                      <p style="color: red;">Email is required</p>
+                    </div>
+                    <div *ngIf="Email!.errors!.pattern">
+                      <p style="color: red;">Enter the correct email</p>
+                    </div>
+                  </div>
+              
+                  <label for="city"><b>City</b></label>
+                  <input type="text" placeholder="Enter City" id="City" name="City" class="form-control" formControlName="City">
+                  <div *ngIf="!City?.valid && (City?.dirty || City?.touched)" class="error">
+                    <div *ngIf="City!.errors!.required">
+                      <p style="color: red;">City is required</p>
+                    </div>
+                    <div *ngIf="City!.errors!.pattern">
+                      <p style="color: red;">Enter In correct format</p>
+                    </div>
+                  </div>
+
+                  <label for="state"><b>State</b></label>
+                  <input type="text" placeholder="Enter State" id="State" name="State" class="form-control" formControlName="State">
+                  <div *ngIf="!State?.valid && (State?.dirty || State?.touched)" class="error">
+                    <div *ngIf="State!.errors!.required">
+                      <p style="color: red;">State is required</p>
+                    </div>
+                    <div *ngIf="State!.errors!.pattern">
+                      <p style="color: red;">Enter in correct format</p>>
+                    </div>
+                  </div>
+                              
+                  <label for="mobile"><b>Mobile No</b></label>
+                  <input type="tel" placeholder="Enter Mobile Number" id="Mobile" name="Mobile" class="form-control" formControlName="Mobile" >
+                  
+                  <div *ngIf="!Mobile?.valid && (Mobile?.dirty || Mobile?.touched)" class="error">
+                    <div *ngIf="Mobile!.errors!.required">
+                      <p style="color: red;">mobile number is required</p>
+                    </div>
+                    <div *ngIf="Mobile!.errors!.pattern">
+                      <p style="color: red;">Enter correct mobile number</p>
+                    </div>
+                  </div>
+
+                  <label for="qualification"><b>Qualification</b></label><br>
+                 
+                    <select class = "qual" type="text" id="qualification" style="width: 365px; height: 25px;" >
+                        <option value="1">BTech</option>
+                        <option value="2">B.E</option>
+                        <option value="3">BCA</option>
+                        <option value="4">MCA</option>
+                      </select>              
+                  
+                  <br>
+                  <br>
+                  <label for="yearOfcompletion"><b> Year Of Completion</b></label><br>
+                  <select type="text" id="yearOfcompletion" style="width: 365px; height: 25px;" name="yearOfcompletion" >
+                    <option value="1">2021</option>
+                 </select>
+                 <br>
+                 <br>
+                  <button type="submit" class="registerbtn">Register</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      
+      <br>
+               
+</body>
+</html>
