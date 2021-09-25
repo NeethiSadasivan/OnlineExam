@@ -1,7 +1,29 @@
 <div class="main">
-<div>
-    <button type="button" class="btn btn-light btn-lg" routerLink="/ReportCard" style="margin-left: 45%;margin-top: 250px; padding-left: 32px; padding-right: 32px;">Report</button>
-
-    <button type="button" class="btn btn-light btn-lg" style="margin-left: 45%;margin-top: 10px;">New Exam</button>
+<div class="card-deck content" >
+    <div class="row" style="position:absolute; top: 28%;left: 36%;">
+        <div class="col-sm-6">
+    <div class="card card-hghlght" style="background-color: #e3f2fd;">
+      <div class="card-body">
+        <h5 class="card-title">Report</h5>
+        <p class="card-text">Check your result</p>
+        <button type="button" class="btn btn-primary" routerLink="/ReportCard" >Result</button>
+      </div>
+    </div>
+        </div>
+        
+        <div class="col-sm-6"  >
+    <div class="card card-hghlght" style="background-color: #e3f2fd;margin-left:60%;">
+      <div class="card-body">
+        <h5 class="card-title">Exam</h5>
+        <p class="card-text">Take a new exam</p>
+        <button type="button" class="btn btn-primary">Start Exam</button>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
+<footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">
+    <div class="footer-copyright text-center py-3">
+      © 2021 Online Exam
+    </div>
+  </footer>

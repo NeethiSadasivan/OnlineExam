@@ -1,37 +1,43 @@
 <div class="main">
-<form #aform="ngForm" (ngSubmit)="Submitdata()" novalidate>
-<div style="margin-left: 40%;">
-    <h1>Admin Login</h1>
-    <p class="form-group col-3">
-        <label for="emailid">Email</label>
-        <input type="text" id="emailid" name="emailid" class="form-control" placeholder="Enter email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"  [(ngModel)]= "admin.emailid" #emailid="ngModel"/>
+<form [formGroup]="AdminLoginForm" (ngSubmit)="Submitdata()" novalidate>
+<div class="login-box">
+    <h1 style="margin-left: 10px;">Admin Login</h1>
+    <p class="form-group col-10">
+        <label for="emailid"><h5>Email</h5></label>
+        <input type="text" id="emailid" name="emailid" class="form-control" placeholder="Enter email" formControlName="emailid" />
     </p>
     
-    <div *ngIf="!emailid?.valid && (emailid?.dirty || emailid?.touched)" class="form-group error col-3">
+    <div *ngIf="!emailid?.valid && (emailid?.dirty || emailid?.touched)" class="form-group error col-8">
         <div *ngIf="emailid!.errors!.required">
           Email is required
         </div>
     </div>
-    <div *ngIf="emailid!.errors?.pattern" class="col-3 error">
+    <div *ngIf="emailid!.errors?.pattern" class="col-8 error">
         
-        enter correct email
+        Enter correct email
          
      </div>
     
-    <p class="form-group col-3">
-        <label for = "password">Password</label>
-        <input type = "text" id = "password" name = "password" class="form-control" placeholder="Password" required [(ngModel)] = "admin.password" #password="ngModel"/>
+    <p class="form-group col-10">
+        <label for = "password"><h5>Password</h5></label>
+        <input type = "password" id = "password" name = "password" class="form-control" placeholder="Password" formControlName="password"/>
     </p>
-    <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="form-group error col-3">
+    <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="form-group error col-8">
         <div *ngIf="password!.errors!.required">
           Password is required
         </div>
     </div>
 
     <div class="form-group form-check">
-        <a routerLink="/AdminForgotPassword">Forgot Password</a><br>
-        <button type="submit" class="btn btn-light btn-lg" style="margin-top: 10px;" [disabled]="!aform.valid">Login</button> 
-    </div>    
-</div>
+        <a routerLink="/AdminForgotPassword">Forgot Password?</a><br>
+        <button type="submit" class="btn btn-light btn-lg" style="margin-top: 10px;" [disabled]="!AdminLoginForm.valid">Login</button> 
+    </div>
+    </div>   
+
 </form>
 </div>
+<footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">
+    <div class="footer-copyright text-center py-3">
+      © 2021 Online Exam
+    </div>
+  </footer>

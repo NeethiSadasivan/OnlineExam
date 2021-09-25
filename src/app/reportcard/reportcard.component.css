@@ -1,7 +1,5 @@
 .main{
-    height: 41.5em;
-    background-image: url(/assets/result.jpg);
-    
+    height:45em;
+    background-image: url(/assets/result.jpg);   
     background-size:cover;
-
 }

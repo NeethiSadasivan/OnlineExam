@@ -1,7 +1,44 @@
 .main{
-    height: 41.5em;
-    background-image: url(/assets/home.jpg);
-    
+    height:45em;
+    background-image: url(/assets/home.jpg);   
     background-size:cover;
-
+    overflow-y: hidden;
 }
+.card-hghlght {
+    pointer-events: auto;
+    transform: scale(1);
+    transition: all 0.4s;
+    
+    height: 140%;
+    width: 140%;
+  }
+  
+  .card-hghlght:hover {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  .content:hover .card-hghlght:not(:hover) {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  .demo {
+    height: 100vh; 
+    width: 1200px;
+    margin: 0 auto;  
+  }
+  
+  .demo-card{
+    background: linear-gradient(132deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px -15px rgba(0,0,0,0.62);  
+    height:350px;
+    width:300px;  
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    pointer-events: none;
+    transition: all 0.4s;
+  }
