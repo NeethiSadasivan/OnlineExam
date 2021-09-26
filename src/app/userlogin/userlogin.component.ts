@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-userlogin',
@@ -8,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UserloginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
+  msg?:string;
+  statusObj: any = {};
 
   ngOnInit(): void {
   }
@@ -29,7 +32,18 @@ export class UserloginComponent implements OnInit {
 
   submitdata()
   {
-    
+    /* this.LoginService.Login(this.Loginform.value).subscribe(  data =>{
+      this.statusObj = data;
+      console.log(this.statusObj);
+      if(this.statusObj.status == "successful") {
+        this.msg = "Login Successfull";
+        sessionStorage.setItem('user', this.Loginform.controls.email.value);
+        this.router.navigateByUrl("Welcome")
+      }
+      else {
+        this.msg = "Login Failed";
+      }
+    });  */ 
   }
 
 }

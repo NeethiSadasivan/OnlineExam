@@ -1,0 +1,16 @@
+.main
+{
+    padding-left: 15em;
+    background-image: url(/assets/21421.jpg);
+    background-size: cover;
+    color:darkblue;
+    }
+.log{
+    margin-left: 90em;
+    margin-top: 1em;
+}
+.btn{
+    
+    margin-left: 15em;
+}
+

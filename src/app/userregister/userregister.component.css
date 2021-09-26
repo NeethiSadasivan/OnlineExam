@@ -10,8 +10,8 @@
 
 .registerbox{
     width:580px;
-    height: 62em;
-    background:rgba(151, 150, 150, 0.5);
+    height: 60em;
+    background:rgb(130, 167, 235);
     color:black;
     top:85%;
     left:50%;
@@ -20,6 +20,7 @@
     box-sizing:border-box;
     padding:70px 30px;
     padding-top: 2em;
+    opacity: 0.90;
 }
 
 .container {

@@ -3,7 +3,7 @@
     <form [formGroup]="Loginform" (ngSubmit)="submitdata()">
         <div class="login-box">
            
-            <!-- <img src="src/assets/Loginlogo.jpg" class="admin" > -->
+            <img src="assets/loginlogo.jpg" class="admin">
             <h4>Login Here</h4>
             <div class="form-group">
                 <p>Email Id</p>
@@ -35,13 +35,13 @@
             <br>
             <div class="forgot" style="align-content: left;">
                 <input class="btn btn-primary" type="submit" value="Login" [disabled]="!Loginform.valid"/>&nbsp;&nbsp;
-                <a class="link" routerLink="Register">Don't have an Account? Sign up</a>
+                <a class="link" routerLink="/Register">Don't have an Account? Sign up</a>
             </div>
             
             <br><br>
             <div class="forgot" style="align-content: left;">
                 <input type="reset" class="btn btn-danger" value="Cancel">&nbsp;&nbsp;
-                <a class="link" routerLink="Forgotpassword">Forgot Password</a>
+                <a class="link" routerLink="/Forgotpassword">Forgot Password</a>
             </div>
             
         </div>  

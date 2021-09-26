@@ -1,8 +1,18 @@
 .main{
-    height: 41.5em;
+    height: 39.8em;
     background-image: url(/assets/21421.jpg);   
     background-size:cover;
 }
+.content{
+    margin-top: 2em;
+    width: 38em;
+    height: 8em;
+    box-sizing: border-box;
+    color: black;
+    margin-left: 19em;   
+    
+  }
+
 .login-box{
     width:400px;
     height:300px;

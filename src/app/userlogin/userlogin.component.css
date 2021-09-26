@@ -16,3 +16,12 @@
     padding:70px 30px;
     padding-top: 2em;
     }
+
+    .admin{
+        width:75px;
+        height:75px;
+        border-radius:70%;
+        position:absolute;
+        top:-50px;
+        left:calc(50% - 50px);
+        }

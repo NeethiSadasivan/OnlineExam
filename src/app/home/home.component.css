@@ -4,6 +4,7 @@
     background-size:cover;
     overflow-y: hidden;
 }
+
 .card-hghlght {
     pointer-events: auto;
     transform: scale(1);

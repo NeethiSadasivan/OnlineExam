@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-userregister',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UserregisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
   Registerform:FormGroup=new FormGroup({
     FullName:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
     Password:new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
@@ -19,6 +21,9 @@ export class UserregisterComponent implements OnInit {
     Qualification:new FormControl("",[Validators.required]),
     YearOfCompletion:new FormControl("",[Validators.required])
   });
+  statusObj: any = {};
+  msg!:string;
+  user!:User
   get FullName()
   {
     return this.Registerform.get('FullName');
@@ -56,7 +61,18 @@ export class UserregisterComponent implements OnInit {
   }
   Submitregister()
   {
-    
+    /*console.log(this.Registerform.value);
+    this.service.Add(this.Registerform.value).subscribe(data => {
+      this.statusObj = data;
+      //let jdata = JSON.parse(data.toString());
+      console.log(this.statusObj);
+      if(this.statusObj.status == "registered") {
+        this.route.navigateByUrl("Login");
+      }
+      else {
+        this.msg = "User Already Exist";
+      }
+    });*/
   }
 
 }

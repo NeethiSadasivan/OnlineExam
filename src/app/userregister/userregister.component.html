@@ -68,7 +68,7 @@
                   </div>
                               
                   <label for="mobile"><b>Mobile No</b></label>
-                  <input type="tel" placeholder="Enter Mobile Number" id="Mobile" name="Mobile" class="form-control" formControlName="Mobile" >
+                  <input type="number" placeholder="Enter Mobile Number" id="Mobile" name="Mobile" class="form-control" formControlName="Mobile" >
                   
                   <div *ngIf="!Mobile?.valid && (Mobile?.dirty || Mobile?.touched)" class="error">
                     <div *ngIf="Mobile!.errors!.required">
@@ -93,10 +93,13 @@
                   <label for="yearOfcompletion"><b> Year Of Completion</b></label><br>
                   <select type="text" id="yearOfcompletion" style="width: 365px; height: 25px;" name="yearOfcompletion" >
                     <option value="1">2021</option>
+                    <option value="1">2020</option>
+                    <option value="1">2019</option>
+                    <option value="1">2018</option>
                  </select>
                  <br>
                  <br>
-                  <button type="submit" class="registerbtn">Register</button>
+                 <button type="button" class="btn btn-primary" style="width: 23em;">Register</button>
                 </div>
               </form>
           </div>
@@ -104,6 +107,11 @@
       </div>
       
       <br>
-               
+      <footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">
+        <div class="footer-copyright text-center py-3">
+          © 2021 Online Exam
+        </div>
+      </footer>               
 </body>
+
 </html>

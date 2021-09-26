@@ -1,6 +1,7 @@
 <div class="main">
 <form [formGroup]="AdminLoginForm" (ngSubmit)="Submitdata()" novalidate>
 <div class="login-box">
+  <img src="assets/loginlogo.jpg" class="admin">
     <h1 style="margin-left: 10px;">Admin Login</h1>
     <p class="form-group col-10">
         <label for="emailid"><h5>Email</h5></label>
@@ -28,10 +29,11 @@
         </div>
     </div>
 
-    <div class="form-group form-check">
+   <!--  <div class="form-group form-check">
         <a routerLink="/AdminForgotPassword">Forgot Password?</a><br>
-        <button type="submit" class="btn btn-light btn-lg" style="margin-top: 10px;" [disabled]="!AdminLoginForm.valid">Login</button> 
-    </div>
+       
+    </div>--> 
+    <button type="submit" class="btn btn-light btn-lg" style="margin-top: 10px;" [disabled]="!AdminLoginForm.valid">Login</button> 
     </div>   
 
 </form>
