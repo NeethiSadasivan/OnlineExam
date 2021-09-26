@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Admin } from '../model/admin';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminlogin',
@@ -12,11 +13,13 @@ export class AdminloginComponent implements OnInit {
     emailid:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]),
     password:new FormControl("",[Validators.required])
   });
-  admin!:Admin
-  constructor() { }
+  
+  status!: string;
+  statusObj: any = {};
+
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.admin = new Admin()
   }
   get emailid()
   {
@@ -28,6 +31,18 @@ export class AdminloginComponent implements OnInit {
   }
   Submitdata()
   {
-    console.log(this.admin)
+    console.log(this.AdminLoginForm.value);
+    this.userService.AdminLogin(this.AdminLoginForm.value).subscribe(data => {
+      this.statusObj = data;
+      console.log(this.statusObj);
+      if(this.statusObj.status == "successful") {
+        this.status = "Login Successfull";
+        sessionStorage.setItem('user', this.AdminLoginForm.controls.emailid.value);
+        //this.router.navigateByUrl("Home")
+      }
+      else {
+        this.status = "Login Failed";
+      }
+    });
   }
 }

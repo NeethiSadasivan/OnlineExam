@@ -12,6 +12,7 @@ import { UserregisterComponent } from './userregister/userregister.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ListexamComponent } from './listexam/listexam.component';
 import { ExamComponent } from './exam/exam.component';
+
 const routes: Routes = [
   {path:'',component:StartpageComponent},
   {path:'Home',component:HomeComponent},
