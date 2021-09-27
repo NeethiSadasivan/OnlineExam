@@ -1,0 +1,27 @@
+.h3{
+    padding-top: 0.5%;
+    padding-bottom: 0.4%;
+    text-align: center;
+}
+
+.main{
+    background-image: url(/assets/studList.jpg);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position-x: right;
+
+}
+
+.designtable{
+    border-radius: 15px;
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+
+.form-group{
+    padding-top: 0.5%;
+    width: 80%;
+    display: block;
+    margin: auto;
+}

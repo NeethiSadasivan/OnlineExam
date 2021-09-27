@@ -5,6 +5,7 @@ import { Result } from '../result';
 import { Users } from '../users';
 import {FormBuilder,FormControl,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
+import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-admin-single-student',
@@ -13,12 +14,21 @@ import { Router } from '@angular/router';
 })
 export class AdminSingleStudentComponent implements OnInit {
 
-  collect!:Collect;
   resForm:FormGroup=new FormGroup({
-    subjectname:new FormControl(""),
-    level:new FormControl("")
+    subjectname: new FormControl(""),
+    level: new FormControl("")
   })
+
+  get subjectname()
+  {
+    return this.resForm.get('subjectname');
+  }
   
+  get level()
+  {
+    return this.resForm.get('level')
+  }
+
   constructor(public aiService: AdminInfoService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -32,19 +42,3 @@ export class AdminSingleStudentComponent implements OnInit {
   }
 }
 
-class Collect{
-  result!:Result;
-  users!:Users;
-
-  state!:string;
-  city!:string;
-  level!:number;
-  subjectid!:number;
-
-  constructor() {
-    this.users.state=this.state;
-    this.users.city=this.city;
-    this.result.level=this.level;
-    this.result.subjectid=this.subjectid;    
-  }
-}
