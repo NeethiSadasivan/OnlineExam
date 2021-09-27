@@ -1,0 +1,48 @@
+<div class="main">
+    <h3 class="h3">Go Ahead Add The Questions</h3>
+    <form [formGroup]="quesForm" (ngSubmit)="AddQues()" novalidate>
+        <div class="designtable">
+            <div class="form-group">
+                <label>Subject Id: </label>
+                <select type="text" class="form-select" formControlName="subjectname">
+                    <option value="Java">Java</option>
+                    <option value="C/C++">C/C++</option>
+                    <option value="Python">Python</option>
+                    <option value="C#">C#</option>
+                    <option value=".Net">.Net</option>
+                    <option value="SQL">SQL</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                <label>Level: </label>
+                <input type="text" formControlName="level" class="form-control" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label>Question: </label>
+                <textarea class="form-control" formControlName="question" rows="3" maxlength="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Option 1</label>
+                <input type="text" formControlName="option1" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Option 2</label>
+                <input type="text" formControlName="option2" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Option 3</label>
+                <input type="text" formControlName="option3" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Option 4</label>
+                <input type="text" formControlName="option4" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Correct Answer</label>
+                <input type="text" formControlName="correct" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-outline-primary btn-light btn-lg" style="display: block; margin:auto; margin-top: 1%;">Add Question</button>
+
+        </div >
+    </form>
+</div>

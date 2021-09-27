@@ -19,6 +19,7 @@ import { UserregisterComponent } from './userregister/userregister.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ListexamComponent } from './listexam/listexam.component';
 import { ExamComponent } from './exam/exam.component';
+import { AdminAddQuestionComponent } from './admin-add-question/admin-add-question.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ExamComponent } from './exam/exam.component';
     UserregisterComponent,
     ForgotpasswordComponent,
     ListexamComponent,
-    ExamComponent
+    ExamComponent,
+    AdminAddQuestionComponent
   ],
   imports: [
     BrowserModule,
