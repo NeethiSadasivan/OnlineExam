@@ -1,10 +1,11 @@
 export class User {
-    FullName!:string;
+    Username!:string;
     Password!:string;
     Email!:string;
-    Mobile!:number;
+    Dob!:Date;
+    Mobile!:string;
     City!:string;
     State!:string;
     Qualification!:string;
-    YearOfCompletion!:string;
+    YearOfCompletion!:number;
 }

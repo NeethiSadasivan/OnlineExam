@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../model/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-userregister',
@@ -10,23 +11,26 @@ import { User } from '../model/user';
 })
 export class UserregisterComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route:Router,private userservice:UserService) { }
   Registerform:FormGroup=new FormGroup({
-    FullName:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
+    Username:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
     Password:new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
     Email:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
     Mobile:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
+    Date:new FormControl("",[Validators.required]),
     City:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
     State:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    Qualification:new FormControl("",[Validators.required]),
-    YearOfCompletion:new FormControl("",[Validators.required])
+    Qualification:new FormControl("B.Tech"),
+    YearOfCompletion:new FormControl("2021")
   });
   statusObj: any = {};
-  msg!:string;
-  user!:User
-  get FullName()
+  status!:string;
+  user!:User;
+  msg:any;
+
+  get Username()
   {
-    return this.Registerform.get('FullName');
+    return this.Registerform.get('Username');
   }
   get Password()
   {
@@ -39,6 +43,10 @@ export class UserregisterComponent implements OnInit {
   get Mobile()
   {
     return this.Registerform.get('Mobile');
+  }
+  get Date()
+  {
+    return this.Registerform.get('Date');
   }
   get City()
   {
@@ -61,18 +69,20 @@ export class UserregisterComponent implements OnInit {
   }
   Submitregister()
   {
-    /*console.log(this.Registerform.value);
-    this.service.Add(this.Registerform.value).subscribe(data => {
+    console.log(this.Registerform.value);
+    this.userservice.Register(this.Registerform.value).subscribe(data => {
       this.statusObj = data;
-      //let jdata = JSON.parse(data.toString());
+     
       console.log(this.statusObj);
       if(this.statusObj.status == "registered") {
-        this.route.navigateByUrl("Login");
+        this.status = "Registration Successfull";
+        this.route.navigateByUrl("UserLogin");
       }
       else {
-        this.msg = "User Already Exist";
+        this.status = "User Already Exist";
+        this.msg = "User Already Exist"
       }
-    });*/
+    });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-userlogin',
@@ -9,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class UserloginComponent implements OnInit {
 
-  constructor(private router:Router) { }
-  msg?:string;
+  constructor(private router:Router,private userservice:UserService) { }
+  status?:string;
+  msg!:string;
   statusObj: any = {};
 
   ngOnInit(): void {
@@ -32,18 +34,20 @@ export class UserloginComponent implements OnInit {
 
   submitdata()
   {
-    /* this.LoginService.Login(this.Loginform.value).subscribe(  data =>{
+     this.userservice.Login(this.Loginform.value).subscribe(  data =>{
       this.statusObj = data;
       console.log(this.statusObj);
       if(this.statusObj.status == "successful") {
-        this.msg = "Login Successfull";
+        this.status = "Login Successfull";
         sessionStorage.setItem('user', this.Loginform.controls.email.value);
-        this.router.navigateByUrl("Welcome")
+        this.userservice.subject.next(true);
+        this.router.navigateByUrl("Home")
       }
       else {
-        this.msg = "Login Failed";
+        this.status = "Login Failed";
+        this.msg ="Invalid Credentials";
       }
-    });  */ 
+    });  
   }
 
 }

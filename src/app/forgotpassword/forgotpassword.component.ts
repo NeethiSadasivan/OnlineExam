@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Admin } from '../model/admin';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -9,11 +10,12 @@ import { Admin } from '../model/admin';
 })
 export class ForgotpasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userservice:UserService) { }
   forgotpasswordForm:FormGroup=new FormGroup({
     emailid:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]),
   });
-  admin!:Admin
+  result:any;
+  
   ngOnInit(): void {
   }
   get emailid()
@@ -27,7 +29,16 @@ export class ForgotpasswordComponent implements OnInit {
 
   Submitdata()
   {
-    console.log(this.admin)
+    /*this.userservice.emailVerification(this.forgotpasswordForm.controls.username.value).subscribe(
+      data => {
+        this.result=data;
+        alert(this.result)
+        if(this.result == true){
+          localStorage.setItem("Username", this.forgotpasswordForm.controls.username.value);
+          alert('Link Successfully Sent');
+        }
+      }
+    )*/
   }
 
 }

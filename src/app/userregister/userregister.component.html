@@ -9,18 +9,30 @@
             <h2 style="margin-left: 2em;">Register for the MET Examination</h2>
             <form [formGroup]="Registerform" (ngSubmit)="Submitregister()" novalidate>
                 <div class="container">
-                  <label for="name"><b>Fullname</b></label>
-                  <input type="text" placeholder="Enter Fullname" id="Fullname" name="Fullname" class="form-control" formControlName="FullName">
+                  <label for="name"><b>User Name</b></label>
+                  <input type="text" placeholder="Enter Username" id="Fullname" name="Fullname" class="form-control" formControlName="Username">
 
-                  <div *ngIf="!FullName?.valid && (FullName?.dirty || FullName?.touched)" class="error">
-                    <div *ngIf="FullName!.errors!.required">
+                  <div *ngIf="!Username?.valid && (Username?.dirty || Username?.touched)" class="error">
+                    <div *ngIf="Username!.errors!.required">
                       <p style="color:red;">Full Name is required</p>
                     </div>
-                    <div *ngIf="FullName!.errors!.pattern">
+                    <div *ngIf="Username!.errors!.pattern">
                       <p style="color: red;">Enter Name in correct format</p>
                     </div>
                  </div>
               
+                                
+                  <label for="email"><b>Email Address</b></label>
+                  <input type="email" placeholder="Enter Email Address" id="Email" name="Email" class="form-control" formControlName="Email">
+
+                  <div *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)" class="error">
+                    <div *ngIf="Email!.errors!.required">
+                      <p style="color: red;">Email is required</p>
+                    </div>
+                    <div *ngIf="Email!.errors!.pattern">
+                      <p style="color: red;">Enter the correct email</p>
+                    </div>
+                  </div>
                   <label for="psw"><b>Password</b></label>
                   <input type="password" placeholder="Enter Password" id="Password" name="Password" class="form-control" formControlName="Password">
 
@@ -33,18 +45,25 @@
                     </div>
                   </div>
               
-                  <label for="email"><b>Email Address</b></label>
-                  <input type="email" placeholder="Enter Email Address" id="Email" name="Email" class="form-control" formControlName="Email">
-
-                  <div *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)" class="error">
-                    <div *ngIf="Email!.errors!.required">
-                      <p style="color: red;">Email is required</p>
+                  <label for="mobile"><b>Mobile No</b></label>
+                  <input type="text" placeholder="Enter Mobile Number" id="Mobile" name="Mobile" class="form-control" formControlName="Mobile" >
+                  
+                  <div *ngIf="!Mobile?.valid && (Mobile?.dirty || Mobile?.touched)" class="error">
+                    <div *ngIf="Mobile!.errors!.required">
+                      <p style="color: red;">mobile number is required</p>
                     </div>
-                    <div *ngIf="Email!.errors!.pattern">
-                      <p style="color: red;">Enter the correct email</p>
+                    <div *ngIf="Mobile!.errors!.pattern">
+                      <p style="color: red;">Enter correct mobile number</p>
                     </div>
                   </div>
-              
+
+                  <label for="date"><b>Date Of Birth</b></label>
+                  <input type="date" placeholder="Enter Date Of Birth" id="Date" name="date" class="form-control" formControlName="Date">
+                  <div *ngIf="!Date?.valid && (Date?.dirty || Date?.touched)" class="error">
+                    <div *ngIf="Date!.errors!.required">
+                      <p style="color: red;">Date is required</p>
+                    </div>
+                  </div>
                   <label for="city"><b>City</b></label>
                   <input type="text" placeholder="Enter City" id="City" name="City" class="form-control" formControlName="City">
                   <div *ngIf="!City?.valid && (City?.dirty || City?.touched)" class="error">
@@ -67,39 +86,30 @@
                     </div>
                   </div>
                               
-                  <label for="mobile"><b>Mobile No</b></label>
-                  <input type="number" placeholder="Enter Mobile Number" id="Mobile" name="Mobile" class="form-control" formControlName="Mobile" >
-                  
-                  <div *ngIf="!Mobile?.valid && (Mobile?.dirty || Mobile?.touched)" class="error">
-                    <div *ngIf="Mobile!.errors!.required">
-                      <p style="color: red;">mobile number is required</p>
-                    </div>
-                    <div *ngIf="Mobile!.errors!.pattern">
-                      <p style="color: red;">Enter correct mobile number</p>
-                    </div>
-                  </div>
+               
 
                   <label for="qualification"><b>Qualification</b></label><br>
                  
-                    <select class = "qual" type="text" id="qualification" style="width: 365px; height: 25px;" >
-                        <option value="1">BTech</option>
-                        <option value="2">B.E</option>
-                        <option value="3">BCA</option>
-                        <option value="4">MCA</option>
+                    <select class = "qual" type="text" id="qualification" style="width: 365px; height: 25px;" formControlName="Qualification" >
+                        <option value="B.Tech">B.Tech</option>
+                        <option value="B.E">B.E</option>
+                        <option value="BCA">BCA</option>
+                        <option value="MCA">MCA</option>
                       </select>              
                   
                   <br>
                   <br>
                   <label for="yearOfcompletion"><b> Year Of Completion</b></label><br>
-                  <select type="text" id="yearOfcompletion" style="width: 365px; height: 25px;" name="yearOfcompletion" >
-                    <option value="1">2021</option>
-                    <option value="1">2020</option>
-                    <option value="1">2019</option>
-                    <option value="1">2018</option>
+                  <select type="text" id="yearOfcompletion" style="width: 365px; height: 25px;" name="yearOfcompletion" formControlName="YearOfCompletion">
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
                  </select>
                  <br>
                  <br>
-                 <button type="button" class="btn btn-primary" style="width: 23em;">Register</button>
+                 <input class="btn btn-primary" type="submit" value="Register" style="width: 23em;" [disabled]="!Registerform.valid"/>
+                 <h5 class="error">{{msg}}</h5>
                 </div>
               </form>
           </div>
