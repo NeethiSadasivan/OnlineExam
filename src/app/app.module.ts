@@ -20,6 +20,9 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ListexamComponent } from './listexam/listexam.component';
 import { ExamComponent } from './exam/exam.component';
 import { AdminAddQuestionComponent } from './admin-add-question/admin-add-question.component';
+import { AdminStudentInfoComponent } from './admin-student-info/admin-student-info.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminSingleStudentComponent } from './admin-single-student/admin-single-student.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { AdminAddQuestionComponent } from './admin-add-question/admin-add-questi
     ForgotpasswordComponent,
     ListexamComponent,
     ExamComponent,
-    AdminAddQuestionComponent
+    AdminAddQuestionComponent,
+    AdminStudentInfoComponent,
+    AdminHomeComponent,
+    AdminSingleStudentComponent
   ],
   imports: [
     BrowserModule,
