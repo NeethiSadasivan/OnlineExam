@@ -18,23 +18,23 @@ export class AdminInfoService {
   }
   constructor(private httpClient:HttpClient) { }
 
-  AddQues(ques:any): Observable<Questions> {
-    return this.httpClient.post<Questions>(this.apiServer + '/ques/', JSON.stringify(ques), this.httpOptions)
-  }
+  // AddQues(ques:any): Observable<Questions> {
+  //   return this.httpClient.post<Questions>(this.apiServer + '/ques/', JSON.stringify(ques), this.httpOptions)
+  // }
 
-  getAllUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>(this.apiServer + '/users/')
-  }
+  // getAllUsers():Observable<User[]>{
+  //   return this.httpClient.get<User[]>(this.apiServer + '/users/')
+  // }
 
-  getAllResult():Observable<Result[]>{
-    return this.httpClient.get<Result[]>(this.apiServer + '/result/')
-  }
+  // getAllResult():Observable<Result[]>{
+  //   return this.httpClient.get<Result[]>(this.apiServer + '/result/')
+  // }
 
-  getUserById(id:any): Observable<User>{
-    return this.httpClient.get<User>(this.apiServer + '/user/' + id)
-  }
+  // getUserById(id:any): Observable<User>{
+  //   return this.httpClient.get<User>(this.apiServer + '/user/' + id)
+  // }
 
-  getResultById(id:any):Observable<Result>{
-    return this.httpClient.get<Result>(this.apiServer + '/result/' + id)
-  }
+  // getResultById(id:any):Observable<Result>{
+  //   return this.httpClient.get<Result>(this.apiServer + '/result/' + id)
+  // }
 }

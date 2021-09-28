@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { Result } from '../model/result';
-import { AdminInfoService } from '../admin-info.service';
+import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
 import {FormGroup,FormControl} from '@angular/forms';
 
@@ -18,7 +18,7 @@ export class AdminStudentInfoComponent implements OnInit {
   users2!:User;
   result2!:Result;
 
-  constructor(public aiService: AdminInfoService, private router: ActivatedRoute) { }
+  constructor(public aiService: UserService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.aiService.getAllUsers().subscribe((data:User[])=>{

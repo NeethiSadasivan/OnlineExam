@@ -1,4 +1,5 @@
 export class User {
+    Userid!:number;
     Username!:string;
     Password!:string;
     Email!:string;

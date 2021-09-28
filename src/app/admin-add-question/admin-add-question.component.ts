@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdminInfoService } from '../admin-info.service';
+import { UserService } from '../user.service';
 import { Questions } from '../model/questions';
 import { Subjects } from '../model/subjects';
 
@@ -66,7 +66,7 @@ export class AdminAddQuestionComponent implements OnInit {
   {
     return this.quesForm.get('subjectname');
   }
-  constructor(private router:Router, public aiService:AdminInfoService) { }
+  constructor(private router:Router, public aiService:UserService) { }
 
   statusObj: any;
   msg!:string;

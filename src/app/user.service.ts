@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable, Subject } from 'rxjs';
 import { Admin } from './model/admin';
 import { User } from './model/user';
+import { Result } from './model/result';
+import { Questions } from './model/questions';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +37,37 @@ export class UserService {
     return this.client.post(this.url+'Users/Login',JSON.stringify(users),this.httpOptions);
   }
 
+  AddQues(ques:any): Observable<Questions> {
+    return this.client.post<Questions>(this.url + '/ques/', JSON.stringify(ques), this.httpOptions)
+  }
 
+  getAllUsers():Observable<User[]>{
+    return this.client.get<User[]>(this.url + '/users/')
+  }
+
+  getAllResult():Observable<Result[]>{
+    return this.client.get<Result[]>(this.url + '/result/')
+  }
+
+  getUserById(id:any): Observable<User>{
+    return this.client.get<User>(this.url + '/user/' + id)
+  }
+
+  getResultById(id:any):Observable<Result>{
+    return this.client.get<Result>(this.url + '/result/' + id)
+  }
+
+  // getReportCard():Observable<Result[]>
+  // {
+  //   return this.client.get<Result[]>(this.url)
+  // }
+
+  // getReportCardById(id:number)
+  // {
+  //   return this.client.get<Result>(this.url+'Users/ReportCard/'+id)
+  // }
+  getUserByEmail(emailid:string):Observable<User[]>
+  {
+    return this.client.get<User[]>(this.url+"Users/ReportCard/"+emailid)
+  }
 }

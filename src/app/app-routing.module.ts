@@ -31,9 +31,10 @@ const routes: Routes = [
   {path:'Forgotpassword',component:ForgotpasswordComponent},
   {path:'Listexam',component:ListexamComponent},
   {path:'Exam',component:ExamComponent},
-  {path: 'singleStudent',component:AdminSingleStudentComponent},
-  {path: 'AddQues',component:AdminAddQuestionComponent},
-  {path: 'StuInfo',component:AdminStudentInfoComponent}
+  {path:'singleStudent',component:AdminSingleStudentComponent},
+  {path:'AddQues',component:AdminAddQuestionComponent},
+  {path:'StuInfo',component:AdminStudentInfoComponent},
+  {path:'AdminHome',component:AdminHomeComponent}
 ];
 
 @NgModule({
