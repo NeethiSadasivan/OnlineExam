@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminInfoService } from '../admin-info.service';
-import { Questions } from '../questions';
-import { Subjects } from '../subjects';
+import { Questions } from '../model/questions';
+import { Subjects } from '../model/subjects';
+
 
 @Component({
   selector: 'app-admin-add-question',

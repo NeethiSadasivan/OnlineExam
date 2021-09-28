@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 
-import { Users } from './users';
-import { Result } from './result';
+import { User } from './model/user';
+import { Result } from './model/result';
 import { Observable } from 'rxjs';
-import { Questions } from './questions';
+import { Questions } from './model/questions';
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +22,16 @@ export class AdminInfoService {
     return this.httpClient.post<Questions>(this.apiServer + '/ques/', JSON.stringify(ques), this.httpOptions)
   }
 
-  getAllUsers():Observable<Users[]>{
-    return this.httpClient.get<Users[]>(this.apiServer + '/users/')
+  getAllUsers():Observable<User[]>{
+    return this.httpClient.get<User[]>(this.apiServer + '/users/')
   }
 
   getAllResult():Observable<Result[]>{
     return this.httpClient.get<Result[]>(this.apiServer + '/result/')
   }
 
-  getUserById(id:any): Observable<Users>{
-    return this.httpClient.get<Users>(this.apiServer + '/user/' + id)
+  getUserById(id:any): Observable<User>{
+    return this.httpClient.get<User>(this.apiServer + '/user/' + id)
   }
 
   getResultById(id:any):Observable<Result>{

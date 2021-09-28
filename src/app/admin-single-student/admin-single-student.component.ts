@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminInfoService } from '../admin-info.service';
-import { Result } from '../result';
-import { Users } from '../users';
+import { Result } from '../model/result';
+import { User } from '../model/user';
 import {FormBuilder,FormControl,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
