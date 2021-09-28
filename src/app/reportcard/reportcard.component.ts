@@ -15,9 +15,7 @@ emailid?:string
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    // this.emailid = sessionStorage.getItem("user")
-    // this.userService.getUserByEmail(this.emailid).subscribe(data => {  
-    //   this.results = data;
+  
   }
 
 }

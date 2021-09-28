@@ -1,9 +1,6 @@
-import { User } from "./user";
-import { Subjects } from "./subjects";
-
 export class Result {
-    Userid!: User;
-    Subjectid!:Subjects;
+    userid!: number;
+    subjectid!:number;
     level1marks!:number;
     level2marks!:number;
     level3marks!:number;

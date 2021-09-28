@@ -56,18 +56,4 @@ export class UserService {
   getResultById(id:any):Observable<Result>{
     return this.client.get<Result>(this.url + '/result/' + id)
   }
-
-  // getReportCard():Observable<Result[]>
-  // {
-  //   return this.client.get<Result[]>(this.url)
-  // }
-
-  // getReportCardById(id:number)
-  // {
-  //   return this.client.get<Result>(this.url+'Users/ReportCard/'+id)
-  // }
-  getUserByEmail(emailid:string):Observable<User[]>
-  {
-    return this.client.get<User[]>(this.url+"Users/ReportCard/"+emailid)
-  }
 }
