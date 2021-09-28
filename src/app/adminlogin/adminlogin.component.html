@@ -8,12 +8,12 @@
         <input type="text" id="emailid" name="emailid" class="form-control" placeholder="Enter email" formControlName="emailid" />
     </p>
     
-    <div *ngIf="!emailid?.valid && (emailid?.dirty || emailid?.touched)" class="form-group error col-8">
+    <div *ngIf="!emailid?.valid && (emailid?.dirty || emailid?.touched)" class="form-group error col-8 text-danger">
         <div *ngIf="emailid!.errors!.required">
           Email is required
         </div>
     </div>
-    <div *ngIf="emailid!.errors?.pattern" class="col-8 error">
+    <div *ngIf="emailid!.errors?.pattern" class="col-8 error text-danger">
         
         Enter correct email
          
@@ -23,16 +23,12 @@
         <label for = "password"><h5>Password</h5></label>
         <input type = "password" id = "password" name = "password" class="form-control" placeholder="Password" formControlName="password"/>
     </p>
-    <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="form-group error col-8">
+    <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="form-group error col-8 text-danger">
         <div *ngIf="password!.errors!.required">
           Password is required
         </div>
     </div>
-
-   <!--  <div class="form-group form-check">
-        <a routerLink="/AdminForgotPassword">Forgot Password?</a><br>
-       
-    </div>--> 
+ 
     <button type="submit" class="btn btn-light btn-lg" style="margin-top: 10px;" [disabled]="!AdminLoginForm.valid">Login</button> 
     </div>   
 

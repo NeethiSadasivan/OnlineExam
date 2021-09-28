@@ -5,6 +5,8 @@ import { Admin } from './model/admin';
 import { User } from './model/user';
 import { Result } from './model/result';
 import { Questions } from './model/questions';
+import { Report } from './model/report';
+//import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +57,10 @@ export class UserService {
 
   getResultById(id:any):Observable<Result>{
     return this.client.get<Result>(this.url + '/result/' + id)
+  }
+
+  getReportByEmail(emailid:string)
+  {
+    return this.client.get<Report[]>(this.url+'Users/Reportcard/?emailid='+emailid)
   }
 }

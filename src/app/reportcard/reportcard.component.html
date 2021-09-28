@@ -14,21 +14,24 @@
               <th>Level 3 Score</th>
           </tr>
           </thead>
-          <!-- <tbody>
-            <tr *ngFor="let result of results">
-                <td>{{ result.Userid.Username |  titlecase }}</td>
-                <td>{{ result.Subjectid.Subjectname | titlecase }}</td>
-                <td>{{ result.level1marks }}</td>
-                <td>{{ result.level1marks }}</td>
-                <td>{{ result.level1marks }}</td>
+          <tbody>
+            <tr *ngFor="let i of report">
+
+                <td>{{ i.username  }}</td>
+                <td>{{ i.subjectname }}</td>
+                <td>{{i.level1marks }}</td>
+                <td>{{ i.level2marks }}</td>
+                <td>{{ i.level3marks }}</td>
             </tr>
-            </tbody> -->
+            </tbody>
           </table>
-    <button type="submit" routerLink="/Home" class="btn btn-light btn-lg" style="margin-top: 400px; margin-left: 40px;">Exit</button>
+    <button type="submit" routerLink="/Home" class="btn btn-light btn-lg" style="margin-top: 400px; margin-left: 40px;margin-bottom: 10px;">Exit</button>
+    
 </div>
 </div>
-<footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">
-    <div class="footer-copyright text-center py-3">
-      © 2021 Online Exam
-    </div>
-  </footer>
+</div>
+<footer class="page-footer font-small blue"style="background-color: #e3f2fd;">
+  <div class="footer-copyright text-center py-3">
+    © 2021 Online Exam
+  </div>
+</footer>

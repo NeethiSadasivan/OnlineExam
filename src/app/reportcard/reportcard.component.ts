@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { Result } from '../model/result';
+import { Report } from '../model/report';
 
 @Component({
   selector: 'app-reportcard',
@@ -9,13 +9,21 @@ import { Result } from '../model/result';
 })
 export class ReportcardComponent implements OnInit {
 
-results!:Result[]
-emailid?:string
+report:Array<any>=[]
+email!:any
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-  
+    this.email=sessionStorage.getItem('user')
+    console.log(this.email)
+    this.userService.getReportByEmail(this.email).subscribe(data=>{
+      this.report=data
+      console.log(data)
+
+
+    })
+    
   }
 
 }
