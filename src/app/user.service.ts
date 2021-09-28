@@ -63,4 +63,13 @@ export class UserService {
   {
     return this.client.get<Report[]>(this.url+'Users/Reportcard/?emailid='+emailid)
   }
+  CheckEmail(users:User)
+  {
+    return this.client.post(this.url+'Users/EmailExists',JSON.stringify(users),this.httpOptions);
+  }
+
+  ForgotPassword(users:User)
+  {
+    return this.client.post(this.url+'Users/ForgotPassword',JSON.stringify(users),this.httpOptions);
+  }
 }
