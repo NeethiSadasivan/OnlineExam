@@ -6,6 +6,7 @@ import { User } from './model/user';
 import { Result } from './model/result';
 import { Questions } from './model/questions';
 import { Report } from './model/report';
+import { Subjects } from './model/subjects';
 //import { Console } from 'console';
 
 @Injectable({
@@ -72,4 +73,10 @@ export class UserService {
   {
     return this.client.post(this.url+'Users/ForgotPassword',JSON.stringify(users),this.httpOptions);
   }
+
+  getsubjects():Observable<Subjects[]>
+  {
+    return this.client.get<Subjects[]>(this.url + 'Subjects');
+  }
+
 }

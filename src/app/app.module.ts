@@ -23,6 +23,7 @@ import { AdminAddQuestionComponent } from './admin-add-question/admin-add-questi
 import { AdminStudentInfoComponent } from './admin-student-info/admin-student-info.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSingleStudentComponent } from './admin-single-student/admin-single-student.component';
+import { QuestionsComponent } from './questions/questions.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     AdminStudentInfoComponent,
     AdminHomeComponent,
     AdminSingleStudentComponent,
+    QuestionsComponent,
     ResetpasswordComponent
   ],
   imports: [

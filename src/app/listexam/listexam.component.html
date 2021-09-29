@@ -1,67 +1,26 @@
 <div class="main">
     <h3 style="text-align: center;padding-top: 1em;">Exam Page</h3>
-      <div class="row" >
-          <div class="col-md-3">
+      <div class="row">
+          <div class="col-md-3" *ngFor="let i of subjects | slice:0:3">
               <div class="card" style="width: 18rem;height: 6rem;">
                   <div class="card-body">
-                    <h5 class="card-title">Java</h5>
+                    <h5 class="card-title">{{i.subjectname}}</h5>
                     
                     <a class="link" routerLink="/Exam">Click To Take Exam</a>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="card" style="width: 18rem;height: 6rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">SQL</h5>
-                    
-                    <a class="link" routerLink="/Exam">Click To Take Exam</a>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3" *ngFor="let i of subjects | slice:3">
+                  <div class="card" style="width: 18rem;height: 6rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">{{i.subjectname}}</h5>
+                        
+                        <a class="link" routerLink="/Exam">Click To Take Exam</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-          </div>
-          <div class="col-md-3">
-              <div class="card" style="width: 18rem;height: 6rem;">
-                <div class="card-body">
-                  <h5 class="card-title">C#</h5>
-                  
-                  <a class="link" routerLink="/Exam">Click To Take Exam</a>
-                </div>
-              </div>
-        </div>
-      </div>
-      
-      <div class="row" >
-          <div class="col-md-3">
-              <div class="card" style="width: 18rem;height: 6rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">c/c++</h5>
-                    
-                    <a class="link" routerLink="/Exam">Click To Take Exam</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card" style="width: 18rem;height: 6rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">.net</h5>
-                    
-                    <a class="link" routerLink="/Exam">Click To Take Exam</a>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3">
-              <div class="card" style="width: 18rem;height: 6rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Python</h5>
-                  
-                  <a class="link" routerLink="/Exam">Click To Take Exam</a>
-                </div>
-              </div>
-        </div>
-      </div>
-      
-  </div>
-            
-  
-            
-  
+            </div>
