@@ -20,6 +20,10 @@ export class ListexamComponent implements OnInit {
     }
   )
   }
+  examsubject(subjectname:any){
+    sessionStorage.setItem('Subjectname', subjectname);
+    this.router.navigateByUrl("Exam")
+  }
   
 
 

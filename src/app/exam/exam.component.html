@@ -1,12 +1,10 @@
-<div class="log">
-    <a class="link" routerLink="studentlogin" >Log Out</a>
-</div>
-<h2 style="padding-left: 18em;">Instructions For Technical Test</h2>
+
+<h2 style="padding-left: 12em;">Instructions For Technical Test For the Subject:{{subjectname}}</h2>
 <hr style=" border-width: 3px;">
 <div class="main">
     
     <ol>
-        <li style="font-size: 2em;">Time Duration:</li>
+        <li style="font-size: 2em;">Time Duration:&nbsp;30 Minutes</li>
         <br>
         <li style="font-size: 2em;">No Of Questions:</li><br>
         <li style="font-size: 2em;">Minimum Marks:</li><br>
@@ -15,7 +13,7 @@
         <li style="font-size: 2em;">Attempting the test from your phone/any other non-permissible device.</li><br>
     </ol>
     <div class="btn">
-        <a class="btn btn-info" routerLink="/Questions" role="button">Take Exam</a>
+        <a class="btn btn-info" routerLink="" role="button" (click)="Question()">Take Exam</a>
     </div>
 </div>
 <footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-exam',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private userservice:UserService) { }
+  subjectname:any;
 
   ngOnInit(): void {
+    this.subjectname = sessionStorage.getItem('Subjectname');
+  }
+  Question()
+  {
+    sessionStorage.setItem('Subjectname', this.subjectname);
+    this.router.navigateByUrl("Questions")
+
   }
 
 }

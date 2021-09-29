@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
     console.log("hi");
     sessionStorage.removeItem('username');
     sessionStorage.clear();
-    this.userservice.subject.next(false);
+    this.userservice.subject.next(true);
     //this.message=false;
     this.router.navigate(['UserLogin']); 
   }

@@ -79,4 +79,9 @@ export class UserService {
     return this.client.get<Subjects[]>(this.url + 'Subjects');
   }
 
+  getAllLevel1Questions(subjectname:any)
+  {
+    return this.client.get<Questions[]>(this.url + 'Questions/Level1?sub='+subjectname);
+  }
+
 }
