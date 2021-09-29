@@ -86,7 +86,7 @@ export class QuestionsComponent implements OnInit {
   answer(id:number){
     this.recordedOptions[this.qProgress]=id+1;
     for(let i=0; i<4;i++){
-      if(i==id-1)
+      if(i==id)
       this.selectedOptions[i]=true;
       else
       this.selectedOptions[i]=false;

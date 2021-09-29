@@ -18,7 +18,7 @@ export class ExamComponent implements OnInit {
   Question()
   {
     sessionStorage.setItem('Subjectname', this.subjectname);
-    this.router.navigateByUrl("Questions")
+    this.router.navigateByUrl("Examwishes")
 
   }
 
