@@ -15,12 +15,13 @@ export class UserregisterComponent implements OnInit {
   Registerform:FormGroup=new FormGroup({
     Username:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
     Password:new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
+    ConfirmPassword:new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
     Email:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")]),
     Mobile:new FormControl("",[Validators.required,Validators.pattern("^[0-9]{10}$")]),
     Date:new FormControl("",[Validators.required]),
     City:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    State:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
-    Qualification:new FormControl("B.Tech"),
+    State:new FormControl("Andhra Pradesh"),
+    Qualification:new FormControl("B.Tech Computer Science Engineering"),
     YearOfCompletion:new FormControl("2021")
   });
   statusObj: any = {};
@@ -35,6 +36,10 @@ export class UserregisterComponent implements OnInit {
   get Password()
   {
     return this.Registerform.get('Password');
+  }
+  get ConfirmPassword()
+  {
+    return this.Registerform.get('ConfirmPassword');
   }
   get Email()
   {
@@ -72,16 +77,18 @@ export class UserregisterComponent implements OnInit {
     console.log(this.Registerform.value);
     this.userservice.Register(this.Registerform.value).subscribe(data => {
       this.statusObj = data;
+      if (this.Registerform.controls.password.value == this.Registerform.controls.confirmPassword.value) {
+        console.log(this.statusObj);
+        if(this.statusObj.status == "registered") {
+          this.status = "Registration Successfull";
+          this.route.navigateByUrl("UserLogin");
+        }
+        else {
+          this.status = "User Already Exist";
+          this.msg = "User Already Exist"
+        }
+      }
      
-      console.log(this.statusObj);
-      if(this.statusObj.status == "registered") {
-        this.status = "Registration Successfull";
-        this.route.navigateByUrl("UserLogin");
-      }
-      else {
-        this.status = "User Already Exist";
-        this.msg = "User Already Exist"
-      }
     });
   }
 

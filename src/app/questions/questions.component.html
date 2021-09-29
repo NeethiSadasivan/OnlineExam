@@ -1,1 +1,32 @@
-<p>questions works!</p>
+<div class="timer-container">
+    <span>Time Elapsed : {{displayTimeElapsed()}}</span>
+  </div>
+
+
+  <div class="progress progress2">
+    <div class="progress-bar" role="progressbar" [style.width.%]="seconds/18" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+
+  <div class="container-nav">
+    <div *ngFor="let q of questions;index as i" (click)="indexSelect(i)">
+      <button [ngClass]="{green:(i==qProgress)?true:false, button:true}">{{i+1}}</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="questions" class="questions">
+    <div class="q">
+      &nbsp;{{qProgress+1}}. {{questions[qProgress].question}}
+    </div>
+  </div>
+  <div class="options">
+    <div (click)="answer(0)" [ngClass]="{green:selectedOptions[0], option:true}">A- {{questions[qProgress].option1}}</div>
+    <div (click)="answer(1)" [ngClass]="{green:selectedOptions[1],option:true}">B- {{questions[qProgress].option2}}</div>
+    <div (click)="answer(2)" [ngClass]="{green:selectedOptions[2],option:true}">C- {{questions[qProgress].option3}}</div>
+    <div (click)="answer(3)" [ngClass]="{green:selectedOptions[3],option:true}">D- {{questions[qProgress].option4}}</div>
+  </div>
+  <div class="nav-buttons">
+    <button (click)="nav(false)"[ngClass]="{hide:hideBack, left:true}">Back</button><button [ngClass]="{hide:hideNext, right:true}"(click)="nav(true)">Next</button>
+    <button [ngClass]="{hide:hideSubmit,right:true}" (click)="submitTest()">Submit</button>
+  </div>

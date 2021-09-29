@@ -4,6 +4,7 @@ export class Questions {
     option2!:string;
     option3!:string;
     option4!:string;
-    level!: string;
-    correctanswer!:string;
+    level!: number;
+    correctanswer!:number;
+    subjectid!:number;
 }

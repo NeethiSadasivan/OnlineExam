@@ -44,6 +44,18 @@
                       <p style="color: red;">Password should contain Minimum eight characters,first letter should be upper case and should have atleast one number,lowercase and special characters</p>
                     </div>
                   </div>
+
+                  <label for="psw"><b>Confirm Password</b></label>
+                  <input type="password" placeholder="Enter Confirm Password" id="CPassword" name="CPassword" class="form-control" formControlName="ConfirmPassword">
+
+                  <div *ngIf="!Password?.valid && (Password?.dirty || Password?.touched)" class="error">
+                    <div *ngIf="Password!.errors!.required">
+                      <p style="color: red;">Password is required</p>
+                    </div>
+                    <div *ngIf="Password!.errors!.pattern">
+                      <p style="color: red;">Password should contain Minimum eight characters,first letter should be upper case and should have atleast one number,lowercase and special characters</p>
+                    </div>
+                  </div>
               
                   <label for="mobile"><b>Mobile No</b></label>
                   <input type="text" placeholder="Enter Mobile Number" id="Mobile" name="Mobile" class="form-control" formControlName="Mobile" >
@@ -74,30 +86,67 @@
                       <p style="color: red;">Enter In correct format</p>
                     </div>
                   </div>
-
                   <label for="state"><b>State</b></label>
-                  <input type="text" placeholder="Enter State" id="State" name="State" class="form-control" formControlName="State">
-                  <div *ngIf="!State?.valid && (State?.dirty || State?.touched)" class="error">
-                    <div *ngIf="State!.errors!.required">
-                      <p style="color: red;">State is required</p>
-                    </div>
-                    <div *ngIf="State!.errors!.pattern">
-                      <p style="color: red;">Enter in correct format</p>>
-                    </div>
-                  </div>
-                              
-               
+                  <select name="state" id="state" class="form-control input-validation-error" formControlName="State">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+            <option value="Daman and Diu">Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Puducherry">Puducherry</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            </select>
 
-                  <label for="qualification"><b>Qualification</b></label><br>
-                 
-                    <select class = "qual" type="text" id="qualification" style="width: 365px; height: 25px;" formControlName="Qualification" >
-                        <option value="B.Tech">B.Tech</option>
-                        <option value="B.E">B.E</option>
-                        <option value="BCA">BCA</option>
-                        <option value="MCA">MCA</option>
-                      </select>              
+        
+    
+   
+        
+        <label for="qualification"><b>Qualification</b></label>
+        <select name="qualification" id="qualification" class="form-control input-validation-error" formControlName="Qualification">
+            <option value="B.Tech Computer Science Engineering">B.Tech Computer Science Engineering</option>
+            <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+            <option value="B.Tech Electronics And Communications Engineering">B.Tech Electronics And Communications Engineering</option>
+            <option value="B.Tech Electrical And Electronics Engineering">B.Tech Electrical And Electronics Engineering</option>
+            <option value="B.Tech Mechanical Engineering">B.Tech Mechanical Engineering</option>
+            <option value="B.Tech Others">B.Tech Others</option>
+            <option value="M.Tech Computer Science Engineering">M.Tech Computer Science Engineering</option>
+            <option value="M.Tech Information Technology">M.Tech Information Technology</option>
+            <option value="M.Tech Electronics And Communications Engineering">M.Tech Electronics And Communications Engineering</option>
+            <option value="M.Tech Electrical And Electronics Engineering">M.Tech Electrical And Electronics Engineering</option>
+            <option value="M.Tech Mechanical Engineering">M.Tech Mechanical Engineering</option>
+            <option value="M.Tech Others">M.Tech Others</option>
+            </select>
+                       
                   
-                  <br>
                   <br>
                   <label for="yearOfcompletion"><b> Year Of Completion</b></label><br>
                   <select type="text" id="yearOfcompletion" style="width: 365px; height: 25px;" name="yearOfcompletion" formControlName="YearOfCompletion">
