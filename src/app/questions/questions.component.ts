@@ -12,7 +12,7 @@ export class QuestionsComponent implements OnInit {
 
   questions!:Array<any>;
   selectedOptions!:any[];
-  recordedOptions!:any[];
+  recordedOptions:any[]=[0];
   score!:number;  
   seconds!:number;
   qProgress!:number;
@@ -59,6 +59,7 @@ export class QuestionsComponent implements OnInit {
         this.startTimer();
     }
     );
+    
     //this.subjectname = sessionStorage.getItem('Subjectname');
 
   }
@@ -92,6 +93,7 @@ export class QuestionsComponent implements OnInit {
       this.selectedOptions[i]=false;
     }
   }
+
   nav(value:boolean){
     if(value && this.qProgress<this.questions.length){
       this.qProgress++
