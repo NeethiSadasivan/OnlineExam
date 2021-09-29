@@ -23,6 +23,7 @@ import { AdminAddQuestionComponent } from './admin-add-question/admin-add-questi
 import { AdminStudentInfoComponent } from './admin-student-info/admin-student-info.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSingleStudentComponent } from './admin-single-student/admin-single-student.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdminSingleStudentComponent } from './admin-single-student/admin-single
     AdminAddQuestionComponent,
     AdminStudentInfoComponent,
     AdminHomeComponent,
-    AdminSingleStudentComponent
+    AdminSingleStudentComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
