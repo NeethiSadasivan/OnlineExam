@@ -9,4 +9,5 @@ export class User {
     State!:string;
     Qualification!:string;
     YearOfCompletion!:number;
+    OTP!:string;
 }

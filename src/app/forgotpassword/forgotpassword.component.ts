@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Admin } from '../model/admin';
 import { UserService } from '../user.service';
 
@@ -10,11 +11,15 @@ import { UserService } from '../user.service';
 })
 export class ForgotpasswordComponent implements OnInit {
 
-  constructor(private userservice:UserService) { }
+  constructor(private userservice:UserService,private route:Router) { }
   forgotpasswordForm:FormGroup=new FormGroup({
-    emailid:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]),
+    emailid:new FormControl("",[Validators.required,Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")])
   });
-  result:any;
+
+  UserDoesNotExist =false;
+  Isloading:boolean = false;
+
+  
   
   ngOnInit(): void {
   }
@@ -22,23 +27,25 @@ export class ForgotpasswordComponent implements OnInit {
   {
     return this.forgotpasswordForm.get('emailid');
   }
-  get password()
-  {
-    return this.forgotpasswordForm.get('password');
-  }
-
+ 
   Submitdata()
   {
-    /*this.userservice.emailVerification(this.forgotpasswordForm.controls.username.value).subscribe(
-      data => {
-        this.result=data;
-        alert(this.result)
-        if(this.result == true){
-          localStorage.setItem("Username", this.forgotpasswordForm.controls.username.value);
-          alert('Link Successfully Sent');
-        }
-      }
-    )*/
+   this.Isloading = true;
+   this.userservice.CheckEmail(this.forgotpasswordForm.value).subscribe((data:any)=>
+   {
+    if(data["EmailExists"] == true)
+    {
+        this.UserDoesNotExist = false;
+        this.route.navigateByUrl("/ForgotPassword");
+        sessionStorage.setItem("ForgotEmail",this.forgotpasswordForm.value["emailid"]);
+    }   
+   
+   else if(data["EmailExists"]== false)
+   {
+      this.UserDoesNotExist=true;
+   }
+   
+  })   
   }
 
 }
