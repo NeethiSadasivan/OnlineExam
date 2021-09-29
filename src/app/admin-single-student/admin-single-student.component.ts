@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminInfoService } from '../admin-info.service';
-import { Result } from '../model/result';
-import { User } from '../model/user';
-import {FormBuilder,FormControl,FormGroup} from '@angular/forms';
+import {FormControl,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
-import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
+import { ViewResult } from '../model/view-result';
 
 @Component({
   selector: 'app-admin-single-student',
@@ -15,30 +13,31 @@ import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view
 export class AdminSingleStudentComponent implements OnInit {
 
   resForm:FormGroup=new FormGroup({
-    subjectname: new FormControl(""),
-    level: new FormControl("")
+    subjectid: new FormControl(""),
+    state: new FormControl("")
   })
 
-  get subjectname()
+  result!:ViewResult[]
+
+  get subjectid()
   {
-    return this.resForm.get('subjectname');
+    return this.resForm.get('subjectid');
   }
-  
-  get level()
+  get state()
   {
-    return this.resForm.get('level')
+    return this.resForm.get('state')
   }
 
   constructor(public aiService: AdminInfoService, private router: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    /* this.aiService.getUserById().subscribe((data)=>{
-      this.users=data;
-    }) */
-  }
+  ngOnInit(): void {  }
+  
   SearchStudent()
   {
-    
+    this.aiService.getStudentResultsByState(this.resForm.value.subjectid,this.resForm.value.state).subscribe((data)=>{
+      this.result=data;
+      console.log((data));
+    })
   }
 }
 

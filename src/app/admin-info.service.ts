@@ -5,12 +5,13 @@ import { User } from './model/user';
 import { Result } from './model/result';
 import { Observable } from 'rxjs';
 import { Questions } from './model/questions';
+import { ViewResult } from './model/view-result';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminInfoService {
-  private apiServer = "";           // need to add
+  private apiServer = "http://localhost:34795/api/";           // need to add
   httpOptions={
     headers:new HttpHeaders({
       'Content-Type': 'application/json'
@@ -37,4 +38,8 @@ export class AdminInfoService {
   // getResultById(id:any):Observable<Result>{
   //   return this.httpClient.get<Result>(this.apiServer + '/result/' + id)
   // }
+
+  getStudentResultsByState(subid:string, state:string){
+    return this.httpClient.get<ViewResult[]>(this.apiServer + 'studentdetail/?subjectid='+subid+'&state='+state)
+  }
 }

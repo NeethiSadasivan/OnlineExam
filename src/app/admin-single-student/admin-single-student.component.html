@@ -1,30 +1,22 @@
 <body class="main">
+    <h1 style="text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Search User Details</h1>
     <div>
         <form [formGroup]="resForm" (ngSubmit)="SearchStudent()" novalidate>
             <div class="search">
                 <div class="form-group">
-                    <label style="margin-top: 1%;">Subject Name: </label>
-                    <select type="text" class="form-select" formControlName="subjectname">
-                        <option value="Java">Java</option>
-                        <option value="C/C++">C/C++</option>
-                        <option value="Python">Python</option>
-                        <option value="C#">C#</option>
-                        <option value=".Net">.Net</option>
-                        <option value="SQL">SQL</option>
+                    <label style="margin-top: 1%;">Subject ID: </label>
+                    <select name="subjectid" type="text" class="form-control" formControlName="subjectid">
+                        <option value="1">Java</option>
+                        <option value="2">C/C++</option>
+                        <option value="3">Python</option>
+                        <option value="4">SQL</option>
+                        <option value="5">.Net</option>
+                        <option value="6">C#</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
-                    <label>Level: </label>
-                    <select type="text" class="form-select" formControlName="subjectname">
-                        <option value="level1">Level 1</option>
-                        <option value="level2">Level 2</option>
-                        <option value="level3">Level 3</option>
-                    </select>
-                </div>
-                <div class="form-group">
-              
                     <label for="state">State:</label>
-                    
                     <select name="state" id="state" class="form-control" formControlName="state">
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -64,9 +56,40 @@
                         <option value="West Bengal">West Bengal</option>
                         </select>
                 </div>
-                <button type="submit" class="btn btn-outline-primary btn-light btn-lg" routerLink="/StuInfo" style="display: block; margin:auto; margin-top: 3%; margin-bottom: 1%;">Search Student</button>
+                <button type="submit" class="btn btn-outline-primary btn-light btn-lg" style="display: block; margin:auto; margin-top: 3%; margin-bottom: 1%;">Search Student</button>
             </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>User Id</th>
+                        <th>Name</th>
+                        <th>Email-Id</th>
+                        <th>Mobile Number</th>
+                        <th>Date Of Birth</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Subject ID</th>
+                        <th>Level 1 Marks</th>
+                        <th>Level 2 Marks</th>
+                        <th>Level 3 Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let res of result ">
+                        <td>{{res.userid}}</td>
+                        <td>{{res.username}}</td>
+                        <td>{{res.email}}</td>
+                        <td>{{res.mobile}}</td>
+                        <td>{{res.dob}}</td>
+                        <td>{{res.city}}</td>
+                        <td>{{res.state}}</td>
+                        <td>{{res.subjectid}}</td>
+                        <td>{{res.level1marks}}</td>
+                        <td>{{res.level2marks}}</td>
+                        <td>{{res.level3marks}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
     </div>
-    
-    </body>
+</body>
