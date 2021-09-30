@@ -12,6 +12,7 @@ export class ListexamComponent implements OnInit {
 
   constructor(private userservice:UserService,private router:Router) { }
   subjects:Array<any>=[]
+  emailid:any;
   ngOnInit(): void {
    
   this.userservice.getsubjects().subscribe(
@@ -19,9 +20,12 @@ export class ListexamComponent implements OnInit {
       this.subjects=data;      
     }
   )
+  this.emailid = sessionStorage.getItem('user')
   }
+
   examsubject(subjectname:any){
     sessionStorage.setItem('Subjectname', subjectname);
+    sessionStorage.setItem('user',this.emailid);
     this.router.navigateByUrl("Exam")
   }
   
