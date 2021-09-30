@@ -84,4 +84,9 @@ export class UserService {
     return this.client.get<Questions[]>(this.url + 'Questions/Level1?sub='+subjectname);
   }
 
+  updateResults(results:Result,emailid:any,subjectname:any)
+  {
+    return this.client.put(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname,JSON.stringify(results),this.httpOptions);
+  }
+
 }

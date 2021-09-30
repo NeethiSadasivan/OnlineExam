@@ -11,13 +11,16 @@ export class ExamComponent implements OnInit {
 
   constructor(private router:Router,private userservice:UserService) { }
   subjectname:any;
+  emailid:any;
 
   ngOnInit(): void {
     this.subjectname = sessionStorage.getItem('Subjectname');
+    this.emailid = sessionStorage.getItem('user');
   }
   Question()
   {
     sessionStorage.setItem('Subjectname', this.subjectname);
+    sessionStorage.setItem('user',this.emailid);
     this.router.navigateByUrl("Examwishes")
 
   }
