@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
 })
 export class UserregisterComponent implements OnInit {
 
-  constructor(private route:Router,private userservice:UserService) { }
+  constructor(private router:Router,private userservice:UserService) { }
   Registerform:FormGroup=new FormGroup({
     Username:new FormControl("",[Validators.required,Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")]),
     Password:new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
@@ -81,7 +81,7 @@ export class UserregisterComponent implements OnInit {
         console.log(this.statusObj);
         if(this.statusObj.status == "registered") {
           this.status = "Registration Successfull";
-          this.route.navigateByUrl("UserLogin");
+          this.router.navigateByUrl("UserLogin")
         }
         else {
           this.status = "User Already Exist";
