@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     }
     else {
       this.user = sessionStorage.getItem('user');
+      sessionStorage.setItem('user',this.user);
     }
   }
 

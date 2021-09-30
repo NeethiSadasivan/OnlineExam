@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Exam } from '../model/exam';
 import { Questions } from '../model/questions';
+import { Result } from '../model/result';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,7 +12,8 @@ import { UserService } from '../user.service';
 })
 export class QuestionsComponent implements OnInit {
 
-  questions!:Array<any>;
+  questions!:Questions[];
+  results!:Result;
   selectedOptions!:any[];
   recordedOptions:any[]=[0];
   score!:number;  
@@ -23,12 +26,13 @@ export class QuestionsComponent implements OnInit {
   isSubmit!:boolean;
   isLevel4!:boolean;
   hideTest!:boolean;
-
+  exam!:Exam;
   isPassed!:boolean;
 
   testLevel!:number;
   timer:number=0;
   subjectname:any;
+  emailid:any;
 
   
 
@@ -52,6 +56,7 @@ export class QuestionsComponent implements OnInit {
     this.qProgress=0;
     this.isLevel4=false;
     this.subjectname = sessionStorage.getItem('Subjectname');
+    this.emailid = sessionStorage.getItem('user');
     this.userservice.getAllLevel1Questions(this.subjectname).subscribe(
       data=>{
         console.log(data);
@@ -147,6 +152,27 @@ export class QuestionsComponent implements OnInit {
       if(this.recordedOptions[i]==this.questions[i].correctanswer){
         this.score++;
       }
+      
+    }
+    
+    if(this.testLevel==1)
+    {
+      this.score=this.score*5;
+      console.log(this.score)
+      this.userservice.updateResults(this.results,this.emailid,this.subjectname).subscribe(
+        (data:any)=>{
+          this.results = data;
+          
+        }
+      );
+      console.log(this.results)
+      /* console.log("inside level 1")
+      if(this.results.level1marks >= this.exam.level1pass)
+      {
+        
+        console.log("passing condition")
+        this.isPassed=true;
+      } */
     }
   }
 
