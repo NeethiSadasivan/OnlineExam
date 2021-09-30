@@ -40,8 +40,8 @@ export class UserService {
     return this.client.post(this.url+'Users/Login',JSON.stringify(users),this.httpOptions);
   }
 
-  AddQues(ques:any): Observable<Questions> {
-    return this.client.post<Questions>(this.url + '/ques/', JSON.stringify(ques), this.httpOptions)
+  AddQuestion(ques:Questions) {
+    return this.client.post(this.url + 'AddQue', JSON.stringify(ques), this.httpOptions);
   }
 
   getAllUsers():Observable<User[]>{

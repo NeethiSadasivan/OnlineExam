@@ -20,7 +20,6 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ListexamComponent } from './listexam/listexam.component';
 import { ExamComponent } from './exam/exam.component';
 import { AdminAddQuestionComponent } from './admin-add-question/admin-add-question.component';
-import { AdminStudentInfoComponent } from './admin-student-info/admin-student-info.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminSingleStudentComponent } from './admin-single-student/admin-single-student.component';
 import { QuestionsComponent } from './questions/questions.component';
@@ -44,7 +43,6 @@ import { ExamwishesComponent } from './examwishes/examwishes.component';
     ListexamComponent,
     ExamComponent,
     AdminAddQuestionComponent,
-    AdminStudentInfoComponent,
     AdminHomeComponent,
     AdminSingleStudentComponent,
     QuestionsComponent,
