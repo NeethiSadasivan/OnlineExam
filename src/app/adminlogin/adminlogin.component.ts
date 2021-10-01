@@ -36,6 +36,8 @@ export class AdminloginComponent implements OnInit {
       this.statusObj = data;
       console.log(this.statusObj);
       if(this.statusObj.status == "successful") {
+        sessionStorage.setItem('user', this.AdminLoginForm.controls.emailid.value);
+        this.userService.subject.next(true);
         this.status = "Login Successfull";
         this.router.navigateByUrl("AdminHome")
       }

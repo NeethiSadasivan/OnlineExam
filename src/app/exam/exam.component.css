@@ -1,9 +1,11 @@
 .main
 {
     padding-left: 15em;
-    background-image: url(/assets/21421.jpg);
+    background-color: rgb(153, 194, 212); 
     background-size: cover;
     color:darkblue;
+    height: 42.3em;
+    
     }
 .log{
     margin-left: 90em;
@@ -11,7 +13,7 @@
 }
 .btn{
     
-    margin-left: 15em;
+    margin-left: 13em;
 }
 .li{
     font-size: 2em;

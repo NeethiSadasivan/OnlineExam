@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  user!: any;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('user') == null) {
+      this.router.navigateByUrl("AdminLogin");
+    }
+    else {
+      this.user = sessionStorage.getItem('user');
+         }
   }
 
 }
