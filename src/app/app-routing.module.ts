@@ -14,7 +14,6 @@ import { ListexamComponent } from './listexam/listexam.component';
 import { ExamComponent } from './exam/exam.component';
 import { AdminSingleStudentComponent } from './admin-single-student/admin-single-student.component';
 import { AdminAddQuestionComponent } from './admin-add-question/admin-add-question.component';
-import { AdminStudentInfoComponent } from './admin-student-info/admin-student-info.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ExamwishesComponent } from './examwishes/examwishes.component';
@@ -37,7 +36,6 @@ const routes: Routes = [
   {path:'Exam',component:ExamComponent},
   {path:'singleStudent',component:AdminSingleStudentComponent},
   {path:'AddQues',component:AdminAddQuestionComponent},
-  {path:'StuInfo',component:AdminStudentInfoComponent},
   {path:'AdminHome',component:AdminHomeComponent},
   {path:'Questions',component:QuestionsComponent},
   {path:'Examwishes',component:ExamwishesComponent}

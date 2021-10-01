@@ -38,13 +38,19 @@
      <div>
        <h4 [ngClass]="{hide:(!isPassed)}"><h2>Congratulations! You Have Cleared Level-{{testLevel-1}}.</h2></h4>
       </div>
-        <div>
+        <div *ngIf = "isPassed">
           <h1>Your Score Is: {{score}}</h1>
+        </div>
+        <div *ngIf = "!isPassed" style="width: 50em;">
+          <h1>Your Score Is: {{score}}.<br>You didn't clear the test.<br>Better luck Next Time:`)</h1>
         </div>
         <div style="margin-top: 30px;">
   
           
           <button (click)="nextTest()" [ngClass]="{hide:(!isPassed||isLevel4)}">Next Level</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <div *ngIf ="isLevel4">
+            <h2>Thank You for taking up our Test. You have successfully cleared all the levels</h2>
+          </div>
           <button routerLink='/Home'>Logout</button>
         </div>
       </div>

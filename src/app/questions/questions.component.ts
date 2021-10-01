@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 export class QuestionsComponent implements OnInit {
 
   questions!:Questions[];
-  results!:Result;
+  results!:number;
   selectedOptions!:any[];
   recordedOptions:any[]=[0];
   score!:number;  
@@ -28,7 +28,7 @@ export class QuestionsComponent implements OnInit {
   hideTest!:boolean;
   exam!:Exam;
   isPassed!:boolean;
-
+  level1marks!:number;
   testLevel!:number;
   timer:number=0;
   subjectname:any;
@@ -64,6 +64,14 @@ export class QuestionsComponent implements OnInit {
         this.startTimer();
     }
     );
+    this.userservice.getexamdata(this.subjectname).subscribe(
+      (data:any)=>{
+        
+        this.exam=data;
+        console.log(this.exam);
+       
+    });
+    
     
     //this.subjectname = sessionStorage.getItem('Subjectname');
 
@@ -125,6 +133,16 @@ export class QuestionsComponent implements OnInit {
     this.seconds=0;
     this.startTimer();
   }
+  startTest2(){
+  
+    this.seconds=0;
+    this.startTimer2();
+  }
+  startTest3(){
+  
+    this.seconds=0;
+    this.startTimer3();
+  }
 
   startTimer(){
     this.timer= window.setInterval(()=>{
@@ -138,8 +156,57 @@ export class QuestionsComponent implements OnInit {
       },1000)
     
   }
+  startTimer2(){
+    this.timer= window.setInterval(()=>{
+      this.seconds++;
+      /* if(this.seconds==20){
+        this.startTest();
+      } */
+      if(this.seconds==1800){
+        this.submitTest();
+      }
+      },3000)
+    
+  }
+  startTimer3(){
+    this.timer= window.setInterval(()=>{
+      this.seconds++;
+      /* if(this.seconds==20){
+        this.startTest();
+      } */
+      if(this.seconds==1800){
+        this.submitTest();
+      }
+      },2000)
+    
+  }
   nextTest()
   {
+    if(this.testLevel==2){
+      this.score=0;
+      this.userservice.getAllLevel2Questions(this.subjectname).subscribe(
+        data=>{
+          //console.log(data);
+          this.questions=data;
+          this.hideTest=false;
+          this.isPassed=false;
+          this.startTest2();
+      }
+      );
+    }
+    if(this.testLevel==3){
+      this.score=0;
+      this.userservice.getAllLevel3Questions(this.subjectname).subscribe(
+        data=>{
+         // console.log(data);
+          this.questions=data;
+          console.log(this.questions.length)
+          this.hideTest=false;
+          this.isPassed=false;
+          this.startTimer();
+      }
+      );
+    }
 
   }
 
@@ -148,32 +215,101 @@ export class QuestionsComponent implements OnInit {
   }
 
   submitTest(){
+    console.log("submit")
     for(let i=0 ;i <this.questions.length; i++){
+     
       if(this.recordedOptions[i]==this.questions[i].correctanswer){
         this.score++;
-      }
-      
-    }
-    
+        
+      }      
+    } 
     if(this.testLevel==1)
     {
-      this.score=this.score*5;
-      console.log(this.score)
-      this.userservice.updateResults(this.results,this.emailid,this.subjectname).subscribe(
+      //console.log(sessionStorage.getItem('userid'))
+      //this.results = { level1marks:this.score};
+      this.score=this.score*42;
+     
+      this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
-          this.results = data;
+          //console.log(data);
+          this.results=data; 
+          console.log(this.results) 
+          console.log(this.exam.level1pass)
+          if(this.results >= this.exam.level1pass)
+              {
+            
+                console.log("passing condition")
+                this.isPassed=true;
+             }   
           
         }
-      );
-      console.log(this.results)
-      console.log("inside level 1")
-      if(this.results.level1marks >= this.exam.level1pass)
-      {
-        
-        console.log("passing condition")
-        this.isPassed=true;
-      } 
+      );       
+       
     }
+    if(this.testLevel==2)
+    {
+      //console.log(sessionStorage.getItem('userid'))
+      //this.results = { level1marks:this.score};
+      this.score=this.score*20;
+     console.log(this.score)
+      this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
+        (data:any)=>{
+          //console.log(data);
+          this.results=data; 
+          console.log(this.results) 
+          console.log(this.exam.level2pass)
+          if(this.results >= this.exam.level2pass)
+              {
+            
+                console.log("passing condition")
+                this.isPassed=true;
+             }   
+          
+        }
+      );       
+       
+    }
+    if(this.testLevel==3)
+    {
+      //console.log(sessionStorage.getItem('userid'))
+      //this.results = { level1marks:this.score};
+      this.score=this.score*50;
+     
+      this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
+        (data:any)=>{
+          //console.log(data);
+          this.results=data; 
+          console.log(this.results) 
+          console.log(this.exam.level3pass)
+          if(this.results >= this.exam.level3pass)
+              {
+            
+                console.log("passing condition")
+                this.isPassed=true;
+             }   
+          
+        }
+      );       
+       
+    }
+
+    this.testLevel++;
+    this.hideTest=true;
+    this.isSubmit=false;
+    this.hideBack=false;
+    this.hideSubmit=true;
+    this.hideNext=false;
+    this.selectedOptions=[false,false,false,false];
+    
+    this.correctAns=0;
+    this.seconds=0;
+    this.timer=0;
+    this.qProgress=0;
+    this.recordedOptions=[];
+    if(this.testLevel==4){
+      this.isLevel4=true
+    }
+
   }
 
 }

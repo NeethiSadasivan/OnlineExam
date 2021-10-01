@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup} from '@angular/forms';
+import {FormControl,FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Questions } from '../model/questions';
@@ -13,8 +13,8 @@ import { Subjects } from '../model/subjects';
 })
 export class AdminAddQuestionComponent implements OnInit {
   
-  questions!: Questions;
-  subjects!: Subjects;
+  // questions!: Questions;
+  // subjects!: Subjects;
   
   quesForm : FormGroup=new FormGroup({
     question: new FormControl(""),
@@ -24,7 +24,7 @@ export class AdminAddQuestionComponent implements OnInit {
     option4:new FormControl(""),
     level:new FormControl(""), 
     correctanswer:new FormControl(""),
-    subjectname:new FormControl("")
+    subjectid:new FormControl("")
   });
 
   get question()
@@ -62,31 +62,22 @@ export class AdminAddQuestionComponent implements OnInit {
     return this.quesForm.get('correctanswer')
   }
 
-  get subjectname()
+  get subjectid()
   {
     return this.quesForm.get('subjectname');
   }
   constructor(private router:Router, public aiService:UserService) { }
 
-  statusObj: any;
-  msg!:string;
+  ques: any;
 
   ngOnInit() {
   }
 
   AddQues()
   {
-    this.aiService.AddQues(this.quesForm.value).subscribe(data => {
-      this.statusObj = data;
-
-      console.log(this.statusObj);
-
-      if(this.statusObj.status=="added"){
-        this.router.navigateByUrl("AddQuestion");
-      }
-      else{
-        this.msg="Question Exits";
-      }
+    console.log(this.quesForm.value);
+    this.aiService.AddQuestion(this.quesForm.value).subscribe(data=>{
+      this.ques = data;
     })
   }
 }

@@ -39,7 +39,8 @@ export class ForgotpasswordComponent implements OnInit {
     {
         this.UserDoesNotExist = false;
         this.route.navigateByUrl("Resetpassword");
-        sessionStorage.setItem("ForgotEmail",this.forgotpasswordForm.value["emailid"]);
+        sessionStorage.setItem("ForgotEmail",this.forgotpasswordForm.controls.emailid.value);
+        
     }   
    
    else if(data["EmailExists"]== false)

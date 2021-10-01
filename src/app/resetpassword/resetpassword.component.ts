@@ -12,11 +12,13 @@ import { UserService } from '../user.service';
 export class ResetpasswordComponent implements OnInit {
 
   user!:User;
+  emailid:any
   IsOTPValid:boolean = false;
   IsLoading:boolean = false;
   PasswordMatch:boolean = true;
 
   resetpasswordForm = new FormGroup({
+    
     Password : new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
     ConfirmPassword : new FormControl("",[Validators.required,Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]),
     Otp:new FormControl("",[Validators.required]),
@@ -47,19 +49,25 @@ export class ResetpasswordComponent implements OnInit {
   {
     this.IsLoading = true;
     this.IsOTPValid = true;
-    console.log(this.resetpasswordForm.value);
+    
 
-    this.resetpasswordForm.value["emailid"] = sessionStorage.getItem('ForgotEmail');
-    console.log(this.resetpasswordForm.value);
+    this.emailid = sessionStorage.getItem("ForgotEmail");
+   
 
     if(this.resetpasswordForm.value["Password"] != this.resetpasswordForm.value["ConfirmPassword"]){
       this.PasswordMatch = false;
       this.IsLoading = false;
     }
+    this.userservice.getUserByEmail(this.emailid).subscribe((data:any)=>
+    {
+      this.user=data;
+      console.log(data);
+    })
 
-    this.userservice.ForgotPassword(this.resetpasswordForm.controls.password.value).subscribe((data:any)=>
+    this.userservice.ForgotPassword(this.resetpasswordForm.value).subscribe((data:any)=>
     {
       console.log(data);
+      console.log(this.resetpasswordForm.value);
       if(data["IsOTPValid"] == true)
       {
         this.IsOTPValid = true;

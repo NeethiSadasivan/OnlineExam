@@ -40,8 +40,8 @@ export class UserService {
     return this.client.post(this.url+'Users/Login',JSON.stringify(users),this.httpOptions);
   }
 
-  AddQues(ques:any): Observable<Questions> {
-    return this.client.post<Questions>(this.url + '/ques/', JSON.stringify(ques), this.httpOptions)
+  AddQuestion(ques:Questions) {
+    return this.client.post(this.url + 'addque/add', JSON.stringify(ques), this.httpOptions);
   }
 
   getAllUsers():Observable<User[]>{
@@ -69,8 +69,15 @@ export class UserService {
     return this.client.post(this.url+'Users/EmailExists?emailid='+emailid,JSON.stringify(emailid),this.httpOptions);
   }
 
+  getUserByEmail(emailid:string)
+  {
+    console.log(emailid)
+    return this.client.get(this.url+'Users/UpdatePassword/?emailid='+emailid)
+  }
+
   ForgotPassword(users:User)
   {
+    
     return this.client.post(this.url+'Users/ForgotPassword',JSON.stringify(users),this.httpOptions);
   }
 
@@ -81,12 +88,28 @@ export class UserService {
 
   getAllLevel1Questions(subjectname:any)
   {
+
     return this.client.get<Questions[]>(this.url + 'Questions/Level1?sub='+subjectname);
   }
 
-  updateResults(results:Result,emailid:any,subjectname:any)
+  updateResults(score:number,emailid:any,subjectname:any)
   {
-    return this.client.post(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname,JSON.stringify(results),this.httpOptions);
+    //console.log("//",score,"//",emailid,".//",subjectname,"//")
+    return this.client.post(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname+"&score="+score,this.httpOptions);
   }
 
+  getAllLevel2Questions(subjectname:any)
+  {
+    return this.client.get<Questions[]>(this.url + 'Questions/Level2?sub='+subjectname);
+
+  }
+
+  getAllLevel3Questions(subjectname:any)
+  {
+    return this.client.get<Questions[]>(this.url + 'Questions/Level3?sub='+subjectname);
+  }
+  getexamdata(subjectname:any)
+  {
+    return this.client.get(this.url + 'Users/Exam?subjectname='+subjectname);
+  }
 }

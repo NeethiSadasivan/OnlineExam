@@ -3,23 +3,23 @@
     <form [formGroup]="quesForm" (ngSubmit)="AddQues()" novalidate>
         <div class="designtable">
             <div class="form-group">
-                <label style="margin-top: 1%;">Subject Id: </label>
-                <select type="text" class="form-select" formControlName="subjectname" style="border-color: black;">
-                    <option value="Java">Java</option>
-                    <option value="C/C++">C/C++</option>
-                    <option value="Python">Python</option>
-                    <option value="C#">C#</option>
-                    <option value=".Net">.Net</option>
-                    <option value="SQL">SQL</option>
+                <label style="margin-top: 1%;">Subject Name: </label>
+                <select type="number" class="form-select" formControlName="subjectid" style="border-color: black;">
+                    <option [ngValue]="1">Java</option>
+                    <option [ngValue]="2">C/C++</option>
+                    <option [ngValue]="3">Python</option>
+                    <option [ngValue]="4">C#</option>
+                    <option [ngValue]="5">.Net</option>
+                    <option [ngValue]="6">SQL</option>
                   </select>
             </div>
             <div class="form-group">
                 <label>Level: </label>
-                <input type="text" style="border-color: black;" formControlName="level" class="form-control" maxlength="20">
+                <input type="number" style="border-color: black;" formControlName="level" class="form-control" maxlength="20">
             </div>
             <div class="form-group">
                 <label>Question: </label>
-                <textarea class="form-control" formControlName="question" rows="2" maxlength="50" style="border-color: black;"></textarea>
+                <textarea class="form-control" formControlName="question" rows="2" maxlength="100" style="border-color: black;"></textarea>
             </div>
             <div class="form-group">
                 <label>Option 1</label>
@@ -39,8 +39,9 @@
             </div>
             <div class="form-group">
                 <label>Correct Answer</label>
-                <input type="text" formControlName="correct" class="form-control" style="border-color: black;">
+                <input type="number" formControlName="correctanswer" class="form-control" style="border-color: black;">
             </div>
+
             <button type="submit" class="btn btn-outline-dark btn-light btn-lg" style="display: block; margin:auto; margin-top: 1%; margin-bottom: 1%; ">Add Question</button>
 
         </div >
