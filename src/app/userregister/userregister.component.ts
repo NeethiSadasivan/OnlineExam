@@ -77,7 +77,7 @@ export class UserregisterComponent implements OnInit {
     console.log(this.Registerform.value);
     this.userservice.Register(this.Registerform.value).subscribe(data => {
       this.statusObj = data;
-      if (this.Registerform.controls.password.value == this.Registerform.controls.confirmPassword.value) {
+      if (this.Registerform.controls.Password.value == this.Registerform.controls.ConfirmPassword.value) {
         console.log(this.statusObj);
         if(this.statusObj.status == "registered") {
           this.status = "Registration Successfull";

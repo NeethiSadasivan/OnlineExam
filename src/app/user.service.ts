@@ -41,7 +41,7 @@ export class UserService {
   }
 
   AddQuestion(ques:Questions) {
-    return this.client.post(this.url + 'AddQue', JSON.stringify(ques), this.httpOptions);
+    return this.client.post(this.url + 'addque/add', JSON.stringify(ques), this.httpOptions);
   }
 
   getAllUsers():Observable<User[]>{
@@ -81,12 +81,25 @@ export class UserService {
 
   getAllLevel1Questions(subjectname:any)
   {
+
     return this.client.get<Questions[]>(this.url + 'Questions/Level1?sub='+subjectname);
   }
 
-  updateResults(results:Result,emailid:any,subjectname:any)
+  updateResults(score:number,emailid:any,subjectname:any)
   {
-    return this.client.put(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname,JSON.stringify(results),this.httpOptions);
+    console.log("//",score,"//",emailid,".//",subjectname,"//")
+    return this.client.post(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname+"&score="+score,this.httpOptions);
   }
 
+  getAllLevel2Questions(subjectname:any)
+  {
+
+    return this.client.get<Questions[]>(this.url + 'Questions/Level2?sub='+subjectname);
+  }
+
+  getAllLevel3Questions(subjectname:any)
+  {
+
+    return this.client.get<Questions[]>(this.url + 'Questions/Level3?sub='+subjectname);
+  }
 }
