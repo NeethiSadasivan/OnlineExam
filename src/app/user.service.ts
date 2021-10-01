@@ -64,9 +64,9 @@ export class UserService {
   {
     return this.client.get<Report[]>(this.url+'Users/Reportcard/?emailid='+emailid)
   }
-  CheckEmail(users:User)
+  CheckEmail(emailid:string)
   {
-    return this.client.post(this.url+'Users/EmailExists',JSON.stringify(users),this.httpOptions);
+    return this.client.post(this.url+'Users/EmailExists?emailid='+emailid,JSON.stringify(emailid),this.httpOptions);
   }
 
   ForgotPassword(users:User)
@@ -86,7 +86,7 @@ export class UserService {
 
   updateResults(results:Result,emailid:any,subjectname:any)
   {
-    return this.client.put(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname,JSON.stringify(results),this.httpOptions);
+    return this.client.post(this.url+'Users/UpdateResults?emailid='+emailid+'&subjectname='+subjectname,JSON.stringify(results),this.httpOptions);
   }
 
 }

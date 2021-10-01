@@ -166,13 +166,13 @@ export class QuestionsComponent implements OnInit {
         }
       );
       console.log(this.results)
-      /* console.log("inside level 1")
+      console.log("inside level 1")
       if(this.results.level1marks >= this.exam.level1pass)
       {
         
         console.log("passing condition")
         this.isPassed=true;
-      } */
+      } 
     }
   }
 

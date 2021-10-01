@@ -18,6 +18,7 @@ import { AdminStudentInfoComponent } from './admin-student-info/admin-student-in
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ExamwishesComponent } from './examwishes/examwishes.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {path:'',component:StartpageComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'UserLogin',component:UserloginComponent},
   {path:'Register',component:UserregisterComponent},
   {path:'Forgotpassword',component:ForgotpasswordComponent},
+  {path:'Resetpassword',component:ResetpasswordComponent},
   {path:'Listexam',component:ListexamComponent},
   {path:'Exam',component:ExamComponent},
   {path:'singleStudent',component:AdminSingleStudentComponent},

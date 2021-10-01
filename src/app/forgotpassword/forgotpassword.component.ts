@@ -18,7 +18,7 @@ export class ForgotpasswordComponent implements OnInit {
 
   UserDoesNotExist =false;
   Isloading:boolean = false;
-
+  msg:any;
   
   
   ngOnInit(): void {
@@ -30,19 +30,22 @@ export class ForgotpasswordComponent implements OnInit {
  
   Submitdata()
   {
+    
    this.Isloading = true;
-   this.userservice.CheckEmail(this.forgotpasswordForm.value).subscribe((data:any)=>
+   this.userservice.CheckEmail(this.forgotpasswordForm.controls.emailid.value).subscribe((data:any)=>
    {
+     console.log(data)
     if(data["EmailExists"] == true)
     {
         this.UserDoesNotExist = false;
-        this.route.navigateByUrl("/ForgotPassword");
+        this.route.navigateByUrl("Resetpassword");
         sessionStorage.setItem("ForgotEmail",this.forgotpasswordForm.value["emailid"]);
     }   
    
    else if(data["EmailExists"]== false)
    {
       this.UserDoesNotExist=true;
+      this.msg="Email does not exist";
    }
    
   })   

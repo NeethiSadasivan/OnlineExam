@@ -57,7 +57,7 @@ export class ResetpasswordComponent implements OnInit {
       this.IsLoading = false;
     }
 
-    this.userservice.ForgotPassword(this.resetpasswordForm.value).subscribe((data:any)=>
+    this.userservice.ForgotPassword(this.resetpasswordForm.controls.password.value).subscribe((data:any)=>
     {
       console.log(data);
       if(data["IsOTPValid"] == true)
