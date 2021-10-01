@@ -157,11 +157,15 @@ export class QuestionsComponent implements OnInit {
     
     if(this.testLevel==1)
     {
+      //console.log(sessionStorage.getItem('userid'))
+      //this.results = { level1marks:this.score};
       this.score=this.score*5;
       console.log(this.score)
-      this.userservice.updateResults(this.results,this.emailid,this.subjectname).subscribe(
+      this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
-          this.results = data;
+          console.log("//1",data);
+          this.results=data;
+          
           
         }
       );
