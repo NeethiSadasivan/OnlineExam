@@ -1,28 +1,39 @@
 .main{
-    height: 39.8em;
-    background-image: url(/assets/21421.jpg);   
+    height: 700px;
+    background-image: url(/assets/R.jpg); 
     background-size:cover;
 }
+
+table{
+  margin-top: 3%;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+img{
+  height: 150px;
+  width: 190px;
+}
+
 .content{
-    margin-top: 2em;
-    width: 38em;
-    height: 8em;
-    box-sizing: border-box;
-    color: black;
-    margin-left: 19em;   
+    padding-top: 1%; 
     
   }
 
 .login-box{
-    width:400px;
-    height:300px;
-    background: #e3f2fd;;
+    width:20%;
+    height:28%;
+    background:rgba(235,235,235,0.9);
     color:rgb(15, 14, 14);
-    top:50%;
-    left:80%;
+    margin-top: 16%;
+    margin-left:50%;
+    margin-bottom: 30%;
     position:absolute;
     transform:translate(-50%,-50%);
     box-sizing:border-box;
-    padding:70px 30px;
+    padding-top: 0.5%;
+    padding-right: 1.8%;
+    border-radius: 10px;
+    /* padding:70px 30px; */
 
     }
