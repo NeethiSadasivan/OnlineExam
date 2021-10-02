@@ -58,38 +58,40 @@
                 </div>
                 <button type="submit" class="btn btn-outline-primary btn-light btn-lg" style="display: block; margin:auto; margin-top: 3%; margin-bottom: 1%;">Search Student</button>
             </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>User Id</th>
-                        <th>Name</th>
-                        <th>Email-Id</th>
-                        <th>Mobile Number</th>
-                        <th>Date Of Birth</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Subject ID</th>
-                        <th>Level 1 Marks</th>
-                        <th>Level 2 Marks</th>
-                        <th>Level 3 Marks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let res of result ">
-                        <td>{{res.userid}}</td>
-                        <td>{{res.username}}</td>
-                        <td>{{res.email}}</td>
-                        <td>{{res.mobile}}</td>
-                        <td>{{res.dob}}</td>
-                        <td>{{res.city}}</td>
-                        <td>{{res.state}}</td>
-                        <td>{{res.subjectid}}</td>
-                        <td>{{res.level1marks}}</td>
-                        <td>{{res.level2marks}}</td>
-                        <td>{{res.level3marks}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div *ngif="isShown">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>User Id</th>
+                            <th>Name</th>
+                            <th>Email-Id</th>
+                            <th>Mobile Number</th>
+                            <th>Date Of Birth</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Subject ID</th>
+                            <th>Level 1 Marks</th>
+                            <th>Level 2 Marks</th>
+                            <th>Level 3 Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let res of result ">
+                            <td>{{res.userid}}</td>
+                            <td>{{res.username}}</td>
+                            <td>{{res.email}}</td>
+                            <td>{{res.mobile}}</td>
+                            <td>{{res.dob}}</td>
+                            <td>{{res.city}}</td>
+                            <td>{{res.state}}</td>
+                            <td>{{res.subjectid}}</td>
+                            <td>{{res.level1marks}}</td>
+                            <td>{{res.level2marks}}</td>
+                            <td>{{res.level3marks}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </form>
     </div>
     <footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">
