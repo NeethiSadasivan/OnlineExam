@@ -1,5 +1,6 @@
 <div class="main">
-    <h3 class="h3">Go Ahead Add The Questions</h3>
+    <h3 class="h3">ADD QUESTIONS</h3>
+    
     <form [formGroup]="quesForm" (ngSubmit)="AddQues()" novalidate>
         <div class="designtable">
             <div class="form-group">
@@ -13,37 +14,90 @@
                     <option [ngValue]="6">SQL</option>
                   </select>
             </div>
+            <div *ngIf="!subjectid?.valid && (subjectid?.dirty || subjectid?.touched)" class="error">
+                <div *ngIf="subjectid!.errors!.required">
+                  <p style="color: red;">\Required field</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Level: </label>
                 <input type="number" style="border-color: black;" formControlName="level" class="form-control" maxlength="20">
             </div>
+            <div *ngIf="!level?.valid && (level?.dirty || level?.touched)" class="error">
+                <div *ngIf="level!.errors!.required">
+                  <p style="color: red;">Required field</p>
+                </div>
+                <div *ngIf="level!.errors!.pattern">
+                  <p style="color: red;">Enter only a number from 1 to 3</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Question: </label>
                 <textarea class="form-control" formControlName="question" rows="2" maxlength="100" style="border-color: black;"></textarea>
             </div>
+            <div *ngIf="!question?.valid && (question?.dirty || question?.touched)" class="error">
+                <div *ngIf="question!.errors!.required">
+                  <p style="color: red;">\Required field</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Option 1</label>
                 <input type="text" formControlName="option1" class="form-control" style="border-color: black;">
             </div>
+            <div *ngIf="!option1?.valid && (option1?.dirty || option1?.touched)" class="error">
+                <div *ngIf="option1!.errors!.required">
+                  <p style="color: red;">\Required field</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Option 2</label>
                 <input type="text" formControlName="option2" class="form-control" style="border-color: black;">
             </div>
+            <div *ngIf="!option2?.valid && (option2?.dirty || option2?.touched)" class="error">
+                <div *ngIf="option2!.errors!.required">
+                  <p style="color: red;">\Required field</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Option 3</label>
                 <input type="text" formControlName="option3" class="form-control" style="border-color: black;">
             </div>
+            <div *ngIf="!option3?.valid && (option3?.dirty || option3?.touched)" class="error">
+                <div *ngIf="option3!.errors!.required">
+                  <p style="color: red;">\Required field</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Option 4</label>
                 <input type="text" formControlName="option4" class="form-control" style="border-color: black;">
             </div>
+            <div *ngIf="!option4?.valid && (option4?.dirty || option4?.touched)" class="error">
+                <div *ngIf="option1!.errors!.required">
+                  <p style="color: red;">\Required field</p>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Correct Answer</label>
                 <input type="number" formControlName="correctanswer" class="form-control" style="border-color: black;">
             </div>
-
+            <div *ngIf="!correctanswer?.valid && (correctanswer?.dirty || correctanswer?.touched)" class="error">
+                <div *ngIf="correctanswer!.errors!.required">
+                  <p style="color: red;">Required field</p>
+                </div>
+                <div *ngIf="correctanswer!.errors!.pattern">
+                  <p style="color: red;">Enter only a number from 1 to 4</p>
+                </div>
+              </div>
             <button type="submit" class="btn btn-outline-dark btn-light btn-lg" style="display: block; margin:auto; margin-top: 1%; margin-bottom: 1%; ">Add Question</button>
-
+            
+            <h5>{{msg}}</h5>
         </div >
     </form>
 </div>

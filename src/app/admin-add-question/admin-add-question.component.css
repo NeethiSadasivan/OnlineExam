@@ -25,3 +25,11 @@
     display: block;
     margin: auto;
 }
+
+.error{
+    /* padding-top: 0.5%; */
+    width: 80%;
+    display: block;
+    margin: auto;
+    font-size: x-small;
+}

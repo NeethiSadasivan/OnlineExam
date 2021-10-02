@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
     sessionStorage.clear();
     this.userservice.subject.next(true);
     //this.message=false;
-    this.router.navigate(['UserLogin']); 
+    this.router.navigate(['Login']); 
   }
 
 }

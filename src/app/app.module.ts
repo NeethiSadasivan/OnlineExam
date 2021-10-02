@@ -26,6 +26,8 @@ import { QuestionsComponent } from './questions/questions.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ExamwishesComponent } from './examwishes/examwishes.component';
 import { FaqComponent } from './faq/faq.component';
+import {TechnologiesComponent } from './technologies/technologies.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { FaqComponent } from './faq/faq.component';
     QuestionsComponent,
     ResetpasswordComponent,
     ExamwishesComponent,
-    FaqComponent
+    FaqComponent,
+    TechnologiesComponent
   ],
   imports: [
     BrowserModule,

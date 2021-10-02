@@ -17,14 +17,14 @@ export class AdminAddQuestionComponent implements OnInit {
   // subjects!: Subjects;
   
   quesForm : FormGroup=new FormGroup({
-    question: new FormControl(""),
-    option1:new FormControl(""),
-    option2:new FormControl(""),
-    option3:new FormControl(""),
-    option4:new FormControl(""),
-    level:new FormControl(""), 
-    correctanswer:new FormControl(""),
-    subjectid:new FormControl("")
+    question: new FormControl("",[Validators.required]),
+    option1:new FormControl("",[Validators.required]),
+    option2:new FormControl("",[Validators.required]),
+    option3:new FormControl("",[Validators.required]),
+    option4:new FormControl("",[Validators.required]),
+    level:new FormControl("",[Validators.required,Validators.pattern("^[1-3]{1}$")]), 
+    correctanswer:new FormControl("",[Validators.required,Validators.pattern("^[1-4]{1}$")]),
+    subjectid:new FormControl("-Select Subject-",[Validators.required])
   });
 
   get question()
@@ -72,12 +72,13 @@ export class AdminAddQuestionComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  msg!:string;
   AddQues()
   {
     console.log(this.quesForm.value);
     this.aiService.AddQuestion(this.quesForm.value).subscribe(data=>{
       this.ques = data;
+      this.msg="Question Added Succesfully"
     })
   }
 }
