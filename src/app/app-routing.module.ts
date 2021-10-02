@@ -18,6 +18,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ExamwishesComponent } from './examwishes/examwishes.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { TechnologiesComponent } from './technologies/technologies.component';
 
 const routes: Routes = [
   {path:'',component:StartpageComponent},
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path:'AddQues',component:AdminAddQuestionComponent},
   {path:'AdminHome',component:AdminHomeComponent},
   {path:'Questions',component:QuestionsComponent},
-  {path:'Examwishes',component:ExamwishesComponent}
+  {path:'Examwishes',component:ExamwishesComponent},
+  {path:'Technologies',component:TechnologiesComponent}
 ];
 
 @NgModule({
