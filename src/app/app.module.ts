@@ -25,6 +25,7 @@ import { AdminSingleStudentComponent } from './admin-single-student/admin-single
 import { QuestionsComponent } from './questions/questions.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ExamwishesComponent } from './examwishes/examwishes.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ExamwishesComponent } from './examwishes/examwishes.component';
     AdminSingleStudentComponent,
     QuestionsComponent,
     ResetpasswordComponent,
-    ExamwishesComponent
+    ExamwishesComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,

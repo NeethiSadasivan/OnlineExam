@@ -1,0 +1,143 @@
+<body style="background-color: rgb(170, 220, 240);height:42.5em">
+<div class="main">
+    <div class="box">
+        <h4 style="margin-bottom: 30px;">Frequently Asked Questions</h4>
+        <div class="boxInfo" [ngSwitch]="showsubcontent">
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=1">What is online 
+            test platform?</button>
+                <div *ngSwitchCase="1">
+                    <p>This is a web based application for conducting online 
+                test or survey. A very comprehensive 
+                application to cater any kind of requirement for online 
+                test. This can help you conduct Test, Quiz, survey, 
+                or provide online assignment to your student. See the 
+                overview and features of the online test platform.
+
+            </p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=2">What are 
+            the advantages in opting for Computer Based Examination?</button>
+                <div *ngSwitchCase="2">
+                    <ul style="margin-left: 24px;">
+                    <li>The candidate can review or re-answer any question 
+                    at any point of time during the examination.</li>
+                    <li>The candidate can change the option of the answer 
+                    during the exam duration and it is one of the most 
+                    important feature of computer based examination</li>
+                    <li>There will be a panel on computer screen showing 
+                    all the question numbers</li>
+                    <li>It will make Candidate feel confident on use 
+                    of Information technology.</li>
+                    <li>Cost and Time reduction</li>
+                </ul>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=3">Do we get 
+            admin control of the online test platform?</button>
+                <div *ngSwitchCase="3">
+                    <p>Yes, you will get admin rights for your account and 
+                you will be able to do all Admin related activities.</p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=4">Can we upload 
+            questions ourselves or we have to send or mail to you?</button>
+                <div *ngSwitchCase="4">
+                    <p>Our website is the most advance online test platform in 
+                terms of the facility for uploading of questions. You 
+                are provided an administrator's panel. Through this 
+                panel you can upload the questions of your question 
+                paper.</p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=5">What kind 
+            of questions are supported?</button>
+                <div *ngSwitchCase="5">
+                    <p>It supports MCQ single correct answer type.</p>  
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=6">What are 
+            the provisions for security and secrecy of our questions 
+            uploaded for tests?</button>
+                <div>
+                    <p *ngSwitchCase="6">There will be written agreement between you and our website 
+                that we will neither use nor circulate the questions 
+                provided by you. Never the less the questions are stored 
+                in the database. </p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=7">Who will 
+            register students we or students themselves?</button>
+                <div *ngSwitchCase="7">
+                    <p>Students can directly register on our website.</p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=8">Registration 
+            of students is paid? Is there any limit? How charges are 
+            applicable?</button>
+                <div *ngSwitchCase="8">
+                    <p>No! there is no charge on the registration of students! </p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=9">Is there 
+            any performance report for each student?</button>
+                <div *ngSwitchCase="9">
+                    <p>Yes! A very compact report is generated 
+                after every test, Which the student (test taker) can 
+                view.</p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=10">What are 
+            the facilities available on the admin control?</button>
+                <div *ngSwitchCase="10">
+                    <p>The admin facility provided include:</p>
+                <ul style="list-style: lower-alpha; margin-left: 24px;">
+                    <li>Upload Questions</li>
+                    <li>View Student Details</li>
+                </ul>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=11">How questions 
+            are displayed before the test takers? The complete test 
+            paper or certain number of questions at a time?</button>
+                <div *ngSwitchCase="11">
+                    <p>Currently one question on a page is displayed. 
+                There is questions bar through which the students navigate 
+                different questions.Students 
+                can select their correct option on the question itself.</p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=12">What if while 
+            taking the test internet connection breaks?</button>
+                <div *ngSwitchCase="12">
+                    <p>For taking tests the internet connection is required.</p>
+                </div>
+            </div>
+            <div class="boxInfo toggleInfo">
+                <button (click)="showsubcontent=13">Can a candidate 
+            change his/her answer ?</button>
+                <div *ngSwitchCase="13">
+                    <p>Yes, a candidate can change his/her anytime answer before the test ends.</p>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
+<footer class="page-footer font-small blue fixed-bottom"style="background-color: #e3f2fd;">
+    <div class="footer-copyright text-center py-3">
+      © 2021 Online Exam
+    </div>
+  </footer>
+</body>

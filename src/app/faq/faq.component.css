@@ -1,0 +1,13 @@
+.main
+{
+    
+    margin:0 auto; 
+   width:960px; 
+   
+}
+button
+{
+    background-color: #e3f2fd;
+    margin-bottom: 10px;
+    border: none;
+}
