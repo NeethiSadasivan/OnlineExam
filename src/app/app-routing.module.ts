@@ -20,6 +20,7 @@ import { ExamwishesComponent } from './examwishes/examwishes.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { FaqComponent } from './faq/faq.component';
 import { TechnologiesComponent } from './technologies/technologies.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 const routes: Routes = [
   {path:'',component:StartpageComponent},
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path:'Questions',component:QuestionsComponent},
   {path:'Examwishes',component:ExamwishesComponent},
   {path:'Faq',component:FaqComponent},
-  {path:'Technologies',component:TechnologiesComponent}
+  {path:'Technologies',component:TechnologiesComponent},
+  {path:'ContactUs',component:ContactusComponent}
 ];
 
 @NgModule({
