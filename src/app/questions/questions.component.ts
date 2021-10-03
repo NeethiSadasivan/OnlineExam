@@ -230,7 +230,7 @@ export class QuestionsComponent implements OnInit {
     {
       //console.log(sessionStorage.getItem('userid'))
       //this.results = { level1marks:this.score};
-      this.score=this.score*5;
+      this.score=this.score*10;
      
       this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
@@ -253,7 +253,7 @@ export class QuestionsComponent implements OnInit {
     {
       //console.log(sessionStorage.getItem('userid'))
       //this.results = { level1marks:this.score};
-      this.score=this.score*5;
+      this.score=this.score*10;
      console.log(this.score)
       this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
@@ -276,7 +276,7 @@ export class QuestionsComponent implements OnInit {
     {
       //console.log(sessionStorage.getItem('userid'))
       //this.results = { level1marks:this.score};
-      this.score=this.score*5;
+      this.score=this.score*10;
      
       this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
