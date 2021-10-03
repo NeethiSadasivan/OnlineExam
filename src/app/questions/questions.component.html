@@ -48,8 +48,11 @@
   
           
           <button (click)="nextTest()" [ngClass]="{hide:(!isPassed||isLevel4)}">Next Level</button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <div *ngIf ="isLevel4">
+          <div *ngIf ="isLevel4 && score>=50">
             <h2>Thank You for taking up our Test. You have successfully cleared all the levels</h2>
+          </div>
+          <div *ngIf ="isLevel4">
+            <h2>Thank You for taking up our Test</h2>
           </div>
           <button routerLink='/Home'>Logout</button>
         </div>
