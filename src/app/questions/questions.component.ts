@@ -214,7 +214,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   displayTimeElapsed():string{
-    return Math.floor(this.seconds/3600)+ ':' + (29-Math.floor(this.seconds/60))+ ':' + (60-Math.floor(this.seconds%60));
+    return Math.floor(this.seconds/3600)+ ':' + (14-Math.floor(this.seconds/60))+ ':' + (60-Math.floor(this.seconds%60));
   }
 
   submitTest(){

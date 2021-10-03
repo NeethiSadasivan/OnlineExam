@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
     sessionStorage.removeItem('username');
     sessionStorage.clear();
     this.userservice.subject.next(true);
-    //this.message=false;
+    this.message=false;
     this.router.navigate(['Login']); 
   }
 
