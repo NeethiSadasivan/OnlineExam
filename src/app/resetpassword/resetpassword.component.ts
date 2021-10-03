@@ -51,23 +51,18 @@ export class ResetpasswordComponent implements OnInit {
     this.IsOTPValid = true;
     
 
-    this.emailid = sessionStorage.getItem("ForgotEmail");
-   
+    this.resetpasswordForm.value["Email"] = sessionStorage.getItem("ForgotEmail");
+    
 
     if(this.resetpasswordForm.value["Password"] != this.resetpasswordForm.value["ConfirmPassword"]){
       this.PasswordMatch = false;
       this.IsLoading = false;
-    }
-    this.userservice.getUserByEmail(this.emailid).subscribe((data:any)=>
-    {
-      this.user=data;
-      console.log(data);
-    })
+    }  
 
     this.userservice.ForgotPassword(this.resetpasswordForm.value).subscribe((data:any)=>
     {
       console.log(data);
-      console.log(this.resetpasswordForm.value);
+      
       if(data["IsOTPValid"] == true)
       {
         this.IsOTPValid = true;

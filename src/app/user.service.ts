@@ -69,11 +69,7 @@ export class UserService {
     return this.client.post(this.url+'Users/EmailExists?emailid='+emailid,JSON.stringify(emailid),this.httpOptions);
   }
 
-  getUserByEmail(emailid:string)
-  {
-    console.log(emailid)
-    return this.client.get(this.url+'Users/UpdatePassword/?emailid='+emailid)
-  }
+
 
   ForgotPassword(users:User)
   {

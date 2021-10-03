@@ -33,6 +33,8 @@ export class QuestionsComponent implements OnInit {
   timer:number=0;
   subjectname:any;
   emailid:any;
+  isGivingTestFirstTime!:boolean;
+  
 
   
 
@@ -42,6 +44,7 @@ export class QuestionsComponent implements OnInit {
  
 
   ngOnInit(): void {
+    this.isGivingTestFirstTime=true;
     this.testLevel=1;
     this.hideTest=false;
     this.isSubmit=false;
@@ -129,7 +132,7 @@ export class QuestionsComponent implements OnInit {
    
   }
   startTest(){
-  
+    this.isGivingTestFirstTime=false;
     this.seconds=0;
     this.startTimer();
   }
@@ -147,10 +150,10 @@ export class QuestionsComponent implements OnInit {
   startTimer(){
     this.timer= window.setInterval(()=>{
       this.seconds++;
-      /* if(this.seconds==20){
+     /*  if(this.seconds==2 && this.isGivingTestFirstTime){
         this.startTest();
-      } */
-      if(this.seconds==1800){
+      }  */
+      if(this.seconds==900){
         this.submitTest();
       }
       },1000)
@@ -162,7 +165,7 @@ export class QuestionsComponent implements OnInit {
       /* if(this.seconds==20){
         this.startTest();
       } */
-      if(this.seconds==1800){
+      if(this.seconds==900){
         this.submitTest();
       }
       },3000)
@@ -174,7 +177,7 @@ export class QuestionsComponent implements OnInit {
       /* if(this.seconds==20){
         this.startTest();
       } */
-      if(this.seconds==1800){
+      if(this.seconds==900){
         this.submitTest();
       }
       },2000)
@@ -227,7 +230,7 @@ export class QuestionsComponent implements OnInit {
     {
       //console.log(sessionStorage.getItem('userid'))
       //this.results = { level1marks:this.score};
-      this.score=this.score*42;
+      this.score=this.score*5;
      
       this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
@@ -250,7 +253,7 @@ export class QuestionsComponent implements OnInit {
     {
       //console.log(sessionStorage.getItem('userid'))
       //this.results = { level1marks:this.score};
-      this.score=this.score*20;
+      this.score=this.score*5;
      console.log(this.score)
       this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{
@@ -273,7 +276,7 @@ export class QuestionsComponent implements OnInit {
     {
       //console.log(sessionStorage.getItem('userid'))
       //this.results = { level1marks:this.score};
-      this.score=this.score*50;
+      this.score=this.score*5;
      
       this.userservice.updateResults(this.score,this.emailid,this.subjectname).subscribe(
         (data:any)=>{

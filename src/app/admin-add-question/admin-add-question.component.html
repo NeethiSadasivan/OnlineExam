@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label>Question: </label>
-                <textarea class="form-control" formControlName="question" rows="2" maxlength="100" style="border-color: black;"></textarea>
+                <textarea class="form-control" formControlName="question" rows="2" maxlength="200" style="border-color: black;"></textarea>
             </div>
             <div *ngIf="!question?.valid && (question?.dirty || question?.touched)" class="error">
                 <div *ngIf="question!.errors!.required">
