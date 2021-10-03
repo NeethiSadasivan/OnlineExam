@@ -33,10 +33,12 @@ export class AdminSingleStudentComponent implements OnInit {
   ngOnInit(): void {  }
   
   isShown : boolean = false;
+
   SearchStudent()
   {
-    this.isShown = true;
+    
     this.aiService.getStudentResultsByState(this.resForm.value.subjectid,this.resForm.value.state).subscribe((data)=>{
+      this.isShown = true;
       this.result=data;
       console.log((data));
     })
