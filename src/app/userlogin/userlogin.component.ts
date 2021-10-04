@@ -34,7 +34,7 @@ export class UserloginComponent implements OnInit {
 
   submitdata()
   {
-     this.userservice.Login(this.Loginform.value).subscribe(  data =>{
+     this.userservice.Login(this.Loginform.value).subscribe( data =>{
       this.statusObj = data;
       console.log(this.statusObj);
       if(this.statusObj.status == "successful") {
