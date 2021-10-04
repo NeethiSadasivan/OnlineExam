@@ -12,6 +12,7 @@ import { ViewResult } from '../model/view-result';
 })
 export class AdminSingleStudentComponent implements OnInit {
 
+  isShown : boolean = false;
   resForm:FormGroup=new FormGroup({
     subjectid: new FormControl(""),
     state: new FormControl("")
@@ -32,7 +33,7 @@ export class AdminSingleStudentComponent implements OnInit {
 
   ngOnInit(): void {  }
   
-  isShown : boolean = false;
+  
   SearchStudent()
   {
     this.isShown = true;

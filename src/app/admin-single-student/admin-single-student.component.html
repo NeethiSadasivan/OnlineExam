@@ -7,7 +7,7 @@
                     <label style="margin-top: 1%;">Subject ID: </label>
                     <select name="subjectid" type="text" class="form-control" formControlName="subjectid">
                         <option value="1">Java</option>
-                        <option value="2">C/C++</option>
+                        <option value="2">c</option>
                         <option value="3">Python</option>
                         <option value="4">SQL</option>
                         <option value="5">.Net</option>
@@ -58,7 +58,7 @@
                 </div>
                 <button type="submit" class="btn btn-outline-primary btn-light btn-lg" style="display: block; margin:auto; margin-top: 3%; margin-bottom: 1%;">Search Student</button>
             </div>
-            <div *ngif="isShown">
+            <div *ngIf="isShown">
                 <table class="table table-hover">
                     <thead>
                         <tr>
