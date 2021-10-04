@@ -56,17 +56,15 @@
                         <option value="West Bengal">West Bengal</option>
                         </select>
                 </div>
-                <button type="submit" class="btn btn-outline-primary btn-light btn-lg" style="display: block; margin:auto; margin-top: 3%; margin-bottom: 1%;">Search Student</button>
+                <button type="submit"  class="btn btn-outline-primary btn-light btn-lg" style="display: block; margin:auto; margin-top: 3%; margin-bottom: 1%;">Search Student</button>
             </div>
             <div *ngIf="isShown">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>User Id</th>
                             <th>Name</th>
                             <th>Email-Id</th>
                             <th>Mobile Number</th>
-                            <th>Date Of Birth</th>
                             <th>City</th>
                             <th>State</th>
                             <th>Subject ID</th>
@@ -77,11 +75,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let res of result ">
-                            <td>{{res.userid}}</td>
                             <td>{{res.username}}</td>
                             <td>{{res.email}}</td>
                             <td>{{res.mobile}}</td>
-                            <td>{{res.dob}}</td>
                             <td>{{res.city}}</td>
                             <td>{{res.state}}</td>
                             <td>{{res.subjectid}}</td>

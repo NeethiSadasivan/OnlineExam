@@ -32,12 +32,14 @@ export class AdminSingleStudentComponent implements OnInit {
   constructor(public aiService: AdminInfoService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {  }
-  
-  
+    
+
+
   SearchStudent()
   {
-    this.isShown = true;
+    
     this.aiService.getStudentResultsByState(this.resForm.value.subjectid,this.resForm.value.state).subscribe((data)=>{
+      this.isShown = true;
       this.result=data;
       console.log((data));
     })
